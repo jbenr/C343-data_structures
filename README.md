@@ -183,7 +183,7 @@ Before we start, you will need a copy of a starter C343 directory on your machin
 
 First, navigate to a directory where you would like to keep your C343 assignments, and then type the following command (the $ just means the command line, you don’t need to type it):
 
-`$ git clone https://github.iu.edu/TBD.git`
+`$ git clone https://github.iu.edu/C343-SP2020/distribution.git`
 
 This downloads our starter files into your directory. By default, Git will remember the link we provided above as `origin`. Let’s rename this to `distribution` since we will be distributing starter files for all assignments through the link above:
 
@@ -197,11 +197,11 @@ At this point, everything you need to download new assignments is ready. Wheneve
 
 ## Making Your Own Repository
 
-For the last step, you will be making your own repository where you will upload you completed programs, which then will be retrieved by the Autograder to grade your program.
+For the last step, you will be setting up your own repository where you will upload you completed programs, which then will be retrieved by the Autograder for grading.
 
-First, you should have been added as a collaborator to a repository named `[your-iu-username]-submission` under the TBD organization. You should go and copy the link to this repository, and give this repository a name using git by using the following command:
+First, you should have been added as a collaborator to a repository named `[your-iu-username]-submission` under the C343-SP2020 organization. You should go and copy the link to this repository, and give this repository a name using git by using the following command:
 
-`$ git remote add submission [link to your repository]`
+`$ git remote add submission https://github.iu.edu/C343-SP2020/[your-iu-username]-submission.git`
 
 Verify that everything is setup correctly by typing the following command:
 
@@ -209,19 +209,19 @@ Verify that everything is setup correctly by typing the following command:
 
 You should see the following result:
 
-    distribution https://github.iu.edu/TBD.git
+    distribution https://github.iu.edu/C343-SP2020/distribution.git
 
     (fetch)
 
-    distribution https://github.iu.edu/TBD.git
+    distribution https://github.iu.edu/C343-SP2020/distribution.git
 
     (push)
 
-    submission https://github.iu.edu/TBD/[username]-submission.git
+    submission https://github.iu.edu/C343-SP2020/[username]-submission.git
 
     (fetch)
 
-    submission https://github.iu.edu/TBD/[username]-submission.git
+    submission https://github.iu.edu/C343-SP2020/[username]-submission.git
 
     (push)
 
