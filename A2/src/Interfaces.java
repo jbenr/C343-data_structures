@@ -59,6 +59,9 @@ interface StackI<E> {
     // updates the current stack by adding the given element to the top
     // expected O(1)
     void push (E item);
+
+    // returns the number of elements in the current queue
+    int size();
 }
 
 // -------------------------------------------
