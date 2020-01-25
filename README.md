@@ -52,21 +52,15 @@ Using `git` requires students to be able to navigate their system using the comm
 
 	$ pwd
 
-	> home/UI # This is the path of the current directory
+	/home/UI # This is the path of the current directory
 
 	$ ls
 
-	> C343-sp2020
-
-	> programming-memes
-
-	> other-stuff
+	C343-sp2020     programming-memes     other-stuff
 
 	
-
-	The above prompt shows a usage of `ls` which shows 3 directories. To navigate into the C343-sp2020,
-
-	we do the following:
+The above prompt shows a usage of `ls` which shows 3 directories. To navigate into the C343-sp2020,
+we do the following:
 
 	
 
@@ -74,13 +68,12 @@ Using `git` requires students to be able to navigate their system using the comm
 
 	$ pwd
 
-	> home/UI/C343-sp2020
+	/home/UI/C343-sp2020
 
 	
 
-	Note that after `cd C343-sp2020`, `pwd` now says we are inside the `C343-sp2020` directory. 
-
-	To go up directory, we do the following:
+Note that after `cd C343-sp2020`, `pwd` now says we are inside the `C343-sp2020` directory. 
+To go up directory, we do the following:
 
 	
 
@@ -88,25 +81,24 @@ Using `git` requires students to be able to navigate their system using the comm
 
 	$ pwd 
 
-	> home/UI # We are back where we were!
+	/home/UI # We are back where we were!
 
 	
 
-	Note that if you know a path to some directory, you can `cd` directly to it instead 
-
-	of doing it step by step.
+Note that if you know a path to some directory, you can `cd` directly to it instead 
+of doing it step by step.
 
 	
 
 	$ pwd 
 
-	> home/UI # Just to show where we currently are
+	/home/UI # Just to show where we currently are
 
 	$ cd C343-sp2020/exams/final/solutions
 
 	$ pwd
 
-	> home/UI/C343-sp2020/exams/final/solutions # We have directly jumped to the final solutions directory!
+	/home/UI/C343-sp2020/exams/final/solutions # We have directly jumped to the final solutions directory!
 
 
 There are many other commands, such as `rm` for removing, `mv` for moving, etc. You will probably need to use these when the time comes, but for the time being, the above three should do.
