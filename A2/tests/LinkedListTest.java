@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LinkedListTest {
+    LinkedList<String>() ll = new LinkedList("ben", new EmptyList());
 
     @Before
     public void setUp() throws Exception {
