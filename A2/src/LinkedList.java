@@ -2,21 +2,26 @@
 
 class LinkedList<E> implements LinkedListI<E> {
     private List<E> elements;
+    private E elem;
+    private LinkedList<E> rest;
 
-    LinkedList () {
+    LinkedList (E node, LinkedList<E> rest) {
         elements = new EmptyL<>();
     }
 
     public void clear() {
-
+        this.elements = new EmptyL<>();
     }
 
     public int size() {
-        return 0;
+        int count = 0;
+        while (this.elements != null) {
+            count = count + 1;
+        }
+        return count;
     }
 
     public void addFirst(E elem) {
-
     }
 
     public void addLast(E elem) {
@@ -24,7 +29,9 @@ class LinkedList<E> implements LinkedListI<E> {
     }
 
     public E getFirst() throws NoSuchElementE {
-        return null;
+        if (this.size() == 0)
+            throw new NoSuchElementE();
+        return elem;
     }
 
     public E getLast() throws NoSuchElementE {
