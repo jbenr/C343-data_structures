@@ -4,6 +4,7 @@
     <list default="true" id="723796e2-c755-48e3-ba5a-4690d06cd948" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/LinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LinkedListTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src" />
@@ -67,6 +69,7 @@
       <workItem from="1579704716041" duration="1084000" />
       <workItem from="1580272293708" duration="179000" />
       <workItem from="1580314388474" duration="851000" />
+      <workItem from="1580322076895" duration="2468000" />
     </task>
     <servers />
   </component>

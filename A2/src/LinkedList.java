@@ -7,6 +7,8 @@ class LinkedList<E> implements LinkedListI<E> {
 
     LinkedList (E node, LinkedList<E> rest) {
         elements = new EmptyL<>();
+        this.node = node;
+        this.rest = rest;
     }
 
     public void clear() {
@@ -14,12 +16,7 @@ class LinkedList<E> implements LinkedListI<E> {
     }
 
     public int size() {
-        int count = 0;
-        if(this.node != null){
-            count++;
-            count = count + this.rest.size();
-        }
-        return count;
+        return elements.length();
     }
 
     public void addFirst(E elem) {
@@ -28,7 +25,12 @@ class LinkedList<E> implements LinkedListI<E> {
     }
 
     public void addLast(E elem) {
-        rest =
+        for(int i = 0; i < this.size(); i++){
+            if(this.rest.size() != 0){
+                rest = new LinkedList<E>(rest.node, rest.rest);
+            }
+            rest.rest = new LinkedList<E>(elem, rest.rest);
+        }
     }
 
     public E getFirst() throws NoSuchElementE {
@@ -37,13 +39,14 @@ class LinkedList<E> implements LinkedListI<E> {
         return node;
     }
 
-    public E getLast() throws NoSuchElementE {
-        for(int i = 0; i < size(); i++){
-            
-        }
+    public E getLast() {
+        if(rest.size() == 0) { return node; }
+        else return rest.getLast();
     }
 
     public E removeFirst() throws NoSuchElementE {
-        return null;
+        node = rest.getFirst();
+        rest = rest.rest;
+        return this.node;
     }
 }
