@@ -8,22 +8,24 @@ class SetList<E> implements SetI<E> {
     }
 
     public void clear() {
-
+        elements = new EmptyL<>();
     }
 
     public boolean isEmpty() {
-        return false;
+        return elements.isEmpty();
     }
 
     public void add(E elem) {
-
+        if (!(elements.contains(elem))) {
+            elements = elements.addLast(elem);
+        }
     }
 
     public boolean contains(E elem) {
-        return false;
+        return elements.contains(elem);
     }
 
     public int size() {
-        return 0;
+        return elements.length();
     }
 }
