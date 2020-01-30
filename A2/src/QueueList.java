@@ -10,22 +10,24 @@ class QueueList<E> implements QueueI<E> {
     }
 
     public void clear() {
-
+        elements = new EmptyL<>();
     }
 
     public void offer(E elem) {
-
+        elements = elements.addLast(elem);
     }
 
     public E poll() throws NoSuchElementE {
-        return null;
+        return elements.getFirst();
     }
 
     public E remove() throws NoSuchElementE {
-        return null;
+        E val = elements.getFirst();
+        elements = elements.getRest();
+        return val;
     }
 
     public int size() {
-        return 0;
+        return elements.length();
     }
 }

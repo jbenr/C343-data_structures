@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="723796e2-c755-48e3-ba5a-4690d06cd948" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DequeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DequeList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/QueueList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QueueList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StackList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/LinkedListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LinkedListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/QueueListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/QueueListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/StackListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/StackListTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +49,66 @@
       <recent name="" />
     </key>
   </component>
+  <component name="RunManager" selected="JUnit.StackListTest.clear">
+    <configuration name="LinkedListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LinkedListTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkedListTest.addFirst" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LinkedListTest" />
+      <option name="METHOD_NAME" value="addFirst" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkedListTest.clear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LinkedListTest" />
+      <option name="METHOD_NAME" value="clear" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinkedListTest.size" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LinkedListTest" />
+      <option name="METHOD_NAME" value="size" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StackListTest.clear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StackListTest" />
+      <option name="METHOD_NAME" value="clear" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StackListTest.clear" />
+        <item itemvalue="JUnit.LinkedListTest" />
+        <item itemvalue="JUnit.LinkedListTest.addFirst" />
+        <item itemvalue="JUnit.LinkedListTest.size" />
+        <item itemvalue="JUnit.LinkedListTest.clear" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
@@ -77,9 +142,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="533" y="143" key="#com.intellij.ide.util.MemberChooser" timestamp="1580346218696">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state x="533" y="143" key="#com.intellij.ide.util.MemberChooser/0.23.1440.808@0.23.1440.808" timestamp="1580346218696" />
+    <state width="1398" height="258" key="GridCell.Tab.0.bottom" timestamp="1580348493900">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1580348493900" />
+    <state width="1398" height="258" key="GridCell.Tab.0.center" timestamp="1580348493899">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1580348493899" />
+    <state width="1398" height="258" key="GridCell.Tab.0.left" timestamp="1580348493899">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1580348493899" />
+    <state width="1398" height="258" key="GridCell.Tab.0.right" timestamp="1580348493900">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1580348493900" />
+    <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1580348493906">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.1.bottom/0.23.1440.808@0.23.1440.808" timestamp="1580348493906" />
+    <state width="1398" height="258" key="GridCell.Tab.1.center" timestamp="1580348493903">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.1.center/0.23.1440.808@0.23.1440.808" timestamp="1580348493903" />
+    <state width="1398" height="258" key="GridCell.Tab.1.left" timestamp="1580348493902">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.1.left/0.23.1440.808@0.23.1440.808" timestamp="1580348493902" />
+    <state width="1398" height="258" key="GridCell.Tab.1.right" timestamp="1580348493905">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state width="1398" height="258" key="GridCell.Tab.1.right/0.23.1440.808@0.23.1440.808" timestamp="1580348493905" />
     <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1580314391990">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1580314391990" />
+    <state x="482" y="50" key="refactoring.ChangeSignatureDialog" timestamp="1580339151075">
+      <screen x="0" y="23" width="1440" height="811" />
+    </state>
+    <state x="482" y="50" key="refactoring.ChangeSignatureDialog/0.23.1440.811@0.23.1440.811" timestamp="1580339151075" />
   </component>
 </project>
