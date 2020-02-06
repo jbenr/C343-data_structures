@@ -26,21 +26,46 @@ public class QueueListTest {
 
     @Test
     public void clear() {
+        assertEquals(3, queue1.size());
+        queue1.clear();
+        assertEquals(0, queue1.size());
     }
 
     @Test
-    public void offer() {
+    public void offer() throws NoSuchElementE {
+        assertEquals(3, queue1.size());
+        queue1.offer(4);
+        assertEquals(4, queue1.size());
+        assertEquals(1, (int) queue1.poll());
     }
 
     @Test
-    public void poll() {
+    public void poll() throws NoSuchElementE {
+        queue1.offer(4);
+        assertEquals(1, (int) queue1.poll());
+    }
+
+    @Test(expected=NoSuchElementE.class)
+    public void pollEmpty() throws NoSuchElementE {
+        empty.poll();
     }
 
     @Test
-    public void remove() {
+    public void remove() throws NoSuchElementE {
+        assertEquals(3, queue1.size());
+        queue1.remove();
+        assertEquals(2, queue1.size());
+    }
+
+    @Test(expected=NoSuchElementE.class)
+    public void removeEmpty() throws NoSuchElementE {
+        empty.remove();
     }
 
     @Test
     public void size() {
+        assertEquals(0, empty.size());
+        empty.offer(10);
+        assertEquals(1, empty.size());
     }
 }
