@@ -47,7 +47,11 @@ public class DynamicArray<E> implements StackI<E>, QueueI<E>, DequeI<E> {
 
     // stack methods: delegate to dequeue
     public void push(E item) {
+<<<<<<< HEAD
         addFirst(item);
+=======
+	
+>>>>>>> bc17e900c22d50e60d3f18b44a1c4637f12fe25d
     }
 
     public E peek() throws NoSuchElementE {
