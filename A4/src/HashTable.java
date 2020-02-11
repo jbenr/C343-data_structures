@@ -38,7 +38,7 @@ abstract class HashTable {
  * implement a method rehash that resizes the hash table to the next prime
  * after doubling the capacity.
  */
-abstract class HashSeparateChaining extends HashTable {
+class HashSeparateChaining extends HashTable {
     // finish the implementation and remove the abstract annotation
 
     private int capacity;
@@ -53,6 +53,8 @@ abstract class HashSeparateChaining extends HashTable {
             chains.add(i, new LinkedList<>());
     }
 
+
+
     public String toString () {
         String result = "";
         for (int i=0; i<capacity; i++) {
@@ -61,6 +63,36 @@ abstract class HashSeparateChaining extends HashTable {
             result += "\n";
         }
         return result;
+    }
+
+    @Override
+    int getCapacity() {
+        return 0;
+    }
+
+    @Override
+    void setCapacity(int capacity) {
+
+    }
+
+    @Override
+    void insert(int key) {
+
+    }
+
+    @Override
+    void delete(int key) {
+
+    }
+
+    @Override
+    boolean search(int key) {
+        return false;
+    }
+
+    @Override
+    void rehash() {
+
     }
 }
 
@@ -171,6 +203,7 @@ abstract class HashTableAux extends HashTable {
         }
         return result;
     }
+
 }
 
 // -------------------------------------------------------

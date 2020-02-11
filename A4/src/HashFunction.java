@@ -1,4 +1,5 @@
 
+import java.util.Random;
 import java.util.function.Function;
 
 // -------------------------------------------------------
@@ -18,8 +19,27 @@ abstract class HashFunction implements Function<Integer,Integer> {
  * HashFunctionTest for some examples.
  *
  */
-abstract class HashMod extends HashFunction {
+class HashMod extends HashFunction {
     // complete the implementation and remove the abstract annotation
+    private int bound;
+
+    HashMod(int bound) {
+        this.bound = bound;
+    }
+
+    public Integer apply (Integer x) {
+        return x % bound;
+    }
+
+    @Override
+    int getBound() {
+        return bound;
+    }
+
+    @Override
+    void setBound(int bound) {
+        this.bound = bound;
+    }
 }
 
 // -------------------------------------------------------
@@ -36,8 +56,19 @@ abstract class HashMod extends HashFunction {
  * See the test cases in HashFunctionTest for some examples.
  *
  */
-abstract class HashModThen extends HashMod {
+class HashModThen extends HashMod {
+    private final Function<Integer, Integer> after;
+
+    HashModThen(int bound, Function<Integer, Integer> after) {
+        super(bound);
+        this.after = after;
+    }
     // complete the implementation and remove the abstract annotation
+
+    public Integer apply(Integer x) {
+        Integer result = Math.floorMod(after.apply(x), getBound());
+        return result;
+    }
 }
 
 // -------------------------------------------------------
@@ -55,8 +86,32 @@ abstract class HashModThen extends HashMod {
  * test cases in HashFunctionTest for some examples.
  *
  */
-abstract class HashUniversal extends HashFunction {
+class HashUniversal extends HashFunction {
+    Random r = new Random();
+    private int p, m, a, b;
+
     // complete the implementation and remove the abstract annotation
+    HashUniversal(Random r, Integer p, Integer m) {
+        this.m = m;
+        this.p = p;
+        this.a = r.nextInt(p-1) + 1;
+        this.b = r.nextInt(p);
+    }
+
+    @Override
+    public Integer apply(Integer x) {
+        return (Integer) Math.floorMod(Math.floorMod( ( ((long) a * x) + b),p ),m );
+    }
+
+    @Override
+    int getBound() {
+        return m;
+    }
+
+    @Override
+    void setBound(int bound) {
+        this.m = bound;
+    }
 }
 
 // -------------------------------------------------------
