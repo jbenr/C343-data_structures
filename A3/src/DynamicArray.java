@@ -40,6 +40,7 @@ public class DynamicArray<E> implements StackI<E>, QueueI<E>, DequeI<E> {
     }
 
     public void push(E item) {
+	
     }
 
     public E peek() throws NoSuchElementE {
