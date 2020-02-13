@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf579413-79a1-4db7-940c-0bb8b27fc696" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashFunction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/HashFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HashFunctionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HashTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,32 +27,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.HashFunctionTest">
+  <component name="RunManager" selected="JUnit.HashTableTest.hashSeparateChaining">
     <configuration name="HashFunctionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="HashFunctionTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashFunctionTest.hashMod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HashFunctionTest" />
-      <option name="METHOD_NAME" value="hashMod" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="HashFunctionTest.hashModAfter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HashFunctionTest" />
-      <option name="METHOD_NAME" value="hashModAfter" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -69,12 +47,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="HashTableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashTableTest.fig55" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
+      <option name="METHOD_NAME" value="fig55" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HashTableTest.hashSeparateChaining" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
+      <option name="METHOD_NAME" value="hashSeparateChaining" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HashTableTest.hashSeparateChaining" />
+        <item itemvalue="JUnit.HashTableTest" />
+        <item itemvalue="JUnit.HashTableTest.fig55" />
         <item itemvalue="JUnit.HashFunctionTest" />
         <item itemvalue="JUnit.HashFunctionTest.hashUniversal" />
-        <item itemvalue="JUnit.HashFunctionTest.hashModAfter" />
-        <item itemvalue="JUnit.HashFunctionTest.hashMod" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +110,7 @@
       <updated>1580952504744</updated>
       <workItem from="1580952507768" duration="1322000" />
       <workItem from="1581102818673" duration="4238000" />
-      <workItem from="1581453409528" duration="1506000" />
+      <workItem from="1581453409528" duration="12166000" />
     </task>
     <servers />
   </component>
@@ -114,42 +122,42 @@
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="112" y="123" width="1228" height="608" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1440.808@0.23.1440.808" timestamp="1581104560198" />
-    <state x="539" y="143" key="#com.intellij.ide.util.MemberChooser" timestamp="1581455992156">
+    <state x="539" y="143" key="#com.intellij.ide.util.MemberChooser" timestamp="1581458400854">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state x="539" y="143" key="#com.intellij.ide.util.MemberChooser/0.23.1440.808@0.23.1440.808" timestamp="1581455992156" />
-    <state width="1386" height="207" key="GridCell.Tab.0.bottom" timestamp="1581456218531">
+    <state x="539" y="143" key="#com.intellij.ide.util.MemberChooser/0.23.1440.808@0.23.1440.808" timestamp="1581458400854" />
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1581556710448">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581456218531" />
-    <state width="1386" height="207" key="GridCell.Tab.0.center" timestamp="1581456218530">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581556710448" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1581556710447">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1581456218530" />
-    <state width="1386" height="207" key="GridCell.Tab.0.left" timestamp="1581456218529">
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1581556710447" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1581556710447">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1581456218529" />
-    <state width="1386" height="207" key="GridCell.Tab.0.right" timestamp="1581456218530">
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1581556710447" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1581556710448">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1581456218530" />
-    <state width="1386" height="258" key="GridCell.Tab.1.bottom" timestamp="1581107271787">
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1581556710448" />
+    <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1581556695602">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="258" key="GridCell.Tab.1.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581107271787" />
-    <state width="1386" height="258" key="GridCell.Tab.1.center" timestamp="1581107271786">
+    <state width="1398" height="258" key="GridCell.Tab.1.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581556695602" />
+    <state width="1398" height="258" key="GridCell.Tab.1.center" timestamp="1581556695601">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="258" key="GridCell.Tab.1.center/0.23.1440.808@0.23.1440.808" timestamp="1581107271786" />
-    <state width="1386" height="258" key="GridCell.Tab.1.left" timestamp="1581107271786">
+    <state width="1398" height="258" key="GridCell.Tab.1.center/0.23.1440.808@0.23.1440.808" timestamp="1581556695601" />
+    <state width="1398" height="258" key="GridCell.Tab.1.left" timestamp="1581556695601">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="258" key="GridCell.Tab.1.left/0.23.1440.808@0.23.1440.808" timestamp="1581107271786" />
-    <state width="1386" height="258" key="GridCell.Tab.1.right" timestamp="1581107271786">
+    <state width="1398" height="258" key="GridCell.Tab.1.left/0.23.1440.808@0.23.1440.808" timestamp="1581556695601" />
+    <state width="1398" height="258" key="GridCell.Tab.1.right" timestamp="1581556695601">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1386" height="258" key="GridCell.Tab.1.right/0.23.1440.808@0.23.1440.808" timestamp="1581107271786" />
+    <state width="1398" height="258" key="GridCell.Tab.1.right/0.23.1440.808@0.23.1440.808" timestamp="1581556695601" />
     <state x="405" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1581453424115">
       <screen x="0" y="23" width="1440" height="808" />
     </state>

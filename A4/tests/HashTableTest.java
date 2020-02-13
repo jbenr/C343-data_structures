@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 public class HashTableTest {
     @Test
     public void hashSeparateChaining () {
-        /*
         Random r = new Random(1);
         HashFunction hf = new HashUniversal(r,31, 10);
         HashTable ht = new HashSeparateChaining(hf);
@@ -25,12 +24,10 @@ public class HashTableTest {
         ht.rehash();
         System.out.println("After rehashing");
         System.out.println(ht);
-         */
     }
 
     @Test
     public void fig55 () {
-        /*
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashSeparateChaining(hf);
         ht.insert(0);
@@ -45,12 +42,11 @@ public class HashTableTest {
         ht.insert(1);
         System.out.println("Fig. 5.5");
         System.out.println(ht);
-         */
     }
 
     @Test
     public void fig511 () {
-        /*
+/*
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashLinearProbing(hf);
         ht.insert(89);
@@ -60,7 +56,7 @@ public class HashTableTest {
         ht.insert(69);
         System.out.println("Fig. 5.11");
         System.out.println(ht);
-         */
+*/
     }
 
     @Test

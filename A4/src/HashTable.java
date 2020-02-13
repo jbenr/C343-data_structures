@@ -53,8 +53,6 @@ class HashSeparateChaining extends HashTable {
             chains.add(i, new LinkedList<>());
     }
 
-
-
     public String toString () {
         String result = "";
         for (int i=0; i<capacity; i++) {
@@ -67,32 +65,57 @@ class HashSeparateChaining extends HashTable {
 
     @Override
     int getCapacity() {
-        return 0;
+        return capacity;
     }
 
     @Override
     void setCapacity(int capacity) {
-
+        this.capacity = capacity;
     }
 
     @Override
     void insert(int key) {
-
+        chains.get(hf.apply(key)).add(key);
     }
 
     @Override
     void delete(int key) {
-
+        LinkedList<Integer> lst = chains.get(hf.apply(key));
+        if (lst.contains(key)) {
+            int newIndex = 0;
+            for(int i = 0; i < lst.size(); i++) {
+                if (lst.get(i) == key) {
+                    newIndex = i;
+                }
+            }
+            lst.remove(newIndex);
+        }
     }
 
     @Override
     boolean search(int key) {
-        return false;
+        return chains.get(hf.apply(key)).contains(key);
     }
 
     @Override
     void rehash() {
+        int newcap = BigInteger.valueOf(2*getCapacity()).nextProbablePrime().intValue();
+        ArrayList<LinkedList<Integer>> oldchains = chains;
+        chains = new ArrayList<>(newcap);
+        int oldcap = capacity;
+        int capacity = newcap;
+        setCapacity(newcap);
+        hf.setBound(newcap);
 
+        for(int i = 0; i<getCapacity(); i++) {
+            chains.add(i, new LinkedList<>());
+        }
+
+        for(int i = 0; i<oldcap; i++) {
+            for(int item : oldchains.get(i)) {
+                insert(item);
+            }
+        }
     }
 }
 
@@ -126,7 +149,7 @@ class Deleted extends Entry {
 }
 
 class Value extends Entry {
-    private int i;
+    int i;
     Value (int i) { this.i = i; }
     int get () { return this.i; }
     boolean available () { return false; }
@@ -176,7 +199,7 @@ class Value extends Entry {
  *
  */
 
-abstract class HashTableAux extends HashTable {
+class HashTableAux extends HashTable {
     private int capacity;
     private HashFunction hf;
     private BiFunction<Integer,Integer,Integer> f;
@@ -204,31 +227,90 @@ abstract class HashTableAux extends HashTable {
         return result;
     }
 
+    @Override
+    int getCapacity() {
+        return capacity;
+    }
+
+    @Override
+    void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    @Override
+    void insert(int key) {
+        for(int i = 0; i<capacity; i++) {
+            int h = dhf.apply(key, i);
+            if (this.slots.get(h).available()) {
+                this.slots.set(h, new Value(key));
+                return;
+            }
+        }
+    }
+
+    @Override
+    void delete(int key) {
+        for(int i = 0; i<this.slots.size(); i++) {
+            int h = dhf.apply(key, i);
+            Entry e = this.slots.get(h);
+            if (e instanceof Value) {
+                Value v = (Value) e;
+                if (v.i == key) {
+                    this.slots.set((int) h, new Deleted());
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override
+    boolean search(int key) {
+        for (int i = 0; i<capacity; i++){
+            int h = dhf.apply(key, i);
+            if (!(this.slots.get(h).available()) && this.slots.get(h).toString().equals(String.valueOf(key))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    void rehash() {
+    }
 }
 
 // -------------------------------------------------------
 
 
-/*
+
 class HashLinearProbing extends HashTableAux {
-    // write the constructor and uncomment
+    HashLinearProbing(HashFunction hf, BiFunction<Integer, Integer, Integer> f) {
+        super(hf, f);
+    }
+
 }
-*/
+
 
 // -------------------------------------------------------
 
-/*
+
 class HashQuadProbing extends HashTableAux {
+    HashQuadProbing(HashFunction hf, BiFunction<Integer, Integer, Integer> f) {
+        super(hf, f);
+    }
     // write the constructor and uncomment
 }
-*/
+
 
 // -------------------------------------------------------
 
-/*
+
 class HashDouble extends HashTableAux {
+    HashDouble(HashFunction hf, BiFunction<Integer, Integer, Integer> f) {
+        super(hf, f);
+    }
     // write the constructor and uncomment
 }
-*/
+
 
 // -------------------------------------------------------
