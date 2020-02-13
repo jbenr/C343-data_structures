@@ -233,8 +233,8 @@ class HashTableAux extends HashTable {
     public void insert(int key) {
         for(int i = 0; i<capacity; i++) {
             int h = dhf.apply(key, i);
-            if (slots.get(h).available()) {
-                slots.set(h, new Value(key));
+            if (this.slots.get(h).available()) {
+                this.slots.set(h, new Value(key));
                 return;
             }
         }
@@ -243,13 +243,15 @@ class HashTableAux extends HashTable {
     }
 
     public void delete(int key) {
-        for(int i = 0; i<this.slots.size(); i++) {
-            int h = dhf.apply(key, i);
+        for (int i = 0; i < this.slots.size(); i++) {
+            Integer h = this.dhf.apply(key, i);
             Entry e = this.slots.get(h);
+            if (slots.get(h) instanceof Empty)
+                break;
             if (e instanceof Value) {
                 Value v = (Value) e;
                 if (v.i == key) {
-                    this.slots.set((int) h, new Deleted());
+                    this.slots.set((Integer) h, new Deleted());
                     return;
                 }
             }
