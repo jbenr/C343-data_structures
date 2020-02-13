@@ -25,7 +25,16 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.HashFunctionTest.hashMod">
+  <component name="RunManager" selected="JUnit.HashFunctionTest">
+    <configuration name="HashFunctionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashFunctionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HashFunctionTest.hashMod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
@@ -66,23 +75,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashTableTest.hashQPgetCapacity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
-      <option name="METHOD_NAME" value="hashQPgetCapacity" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HashFunctionTest" />
         <item itemvalue="JUnit.HashFunctionTest.hashMod" />
         <item itemvalue="JUnit.HashFunctionTest.hashUniversal" />
         <item itemvalue="JUnit.HashTableTest.hashDgetCapacity" />
         <item itemvalue="JUnit.HashTableTest.hashLPgetCapacity" />
-        <item itemvalue="JUnit.HashTableTest.hashQPgetCapacity" />
       </list>
     </recent_temporary>
   </component>
@@ -110,7 +109,7 @@
       <updated>1580952504744</updated>
       <workItem from="1580952507768" duration="1322000" />
       <workItem from="1581102818673" duration="4238000" />
-      <workItem from="1581453409528" duration="17029000" />
+      <workItem from="1581453409528" duration="17462000" />
     </task>
     <servers />
   </component>
@@ -126,22 +125,22 @@
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="539" y="143" key="#com.intellij.ide.util.MemberChooser/0.23.1440.808@0.23.1440.808" timestamp="1581557428752" />
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1581567131041">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1581567338776">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581567131041" />
-    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1581567131040">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581567338776" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1581567338775">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1581567131040" />
-    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1581567131040">
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1581567338775" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1581567338775">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1581567131040" />
-    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1581567131041">
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1581567338775" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1581567338775">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1581567131041" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1581567338775" />
     <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1581556695602">
       <screen x="0" y="23" width="1440" height="808" />
     </state>

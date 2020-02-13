@@ -28,7 +28,7 @@ class HashMod extends HashFunction {
     }
 
     public Integer apply (Integer x) {
-        return x % bound;
+        return Math.floorMod(x, bound);
     }
 
     @Override
@@ -66,8 +66,9 @@ class HashModThen extends HashMod {
     // complete the implementation and remove the abstract annotation
 
     public Integer apply(Integer x) {
-        Integer result = Math.floorMod(after.apply(x), getBound());
-        return result;
+        Integer result = super.apply(x);
+        result = after.apply(result);
+        return Math.floorMod(result, super.getBound());
     }
 }
 
@@ -94,13 +95,13 @@ class HashUniversal extends HashFunction {
     HashUniversal(Random r, Integer p, Integer m) {
         this.m = m;
         this.p = p;
-        this.a = r.nextInt(p-1) + 1;
-        this.b = r.nextInt(p);
+        a = r.nextInt(p-1) + 1;
+        b = r.nextInt(p);
     }
 
     @Override
     public Integer apply(Integer x) {
-        return (Integer) Math.floorMod(Math.floorMod( ( ((long) a * x) + b),p ),m );
+        return Math.floorMod(Math.floorMod(x*a + b, p), m);
     }
 
     @Override
@@ -110,7 +111,7 @@ class HashUniversal extends HashFunction {
 
     @Override
     void setBound(int bound) {
-        this.m = bound;
+        m = bound;
     }
 }
 
