@@ -75,21 +75,16 @@ class HashSeparateChaining extends HashTable {
 
     @Override
     void insert(int key) {
-        chains.get(hf.apply(key)).add(key);
+        LinkedList<Integer> keyList = chains.get(hf.apply(key));
+        if (!keyList.contains(key))
+            keyList.add(Integer.valueOf(key));
     }
 
     @Override
     void delete(int key) {
-        LinkedList<Integer> lst = chains.get(hf.apply(key));
-        if (lst.contains(key)) {
-            int newIndex = 0;
-            for(int i = 0; i < lst.size(); i++) {
-                if (lst.get(i) == key) {
-                    newIndex = i;
-                }
-            }
-            lst.remove(newIndex);
-        }
+        LinkedList<Integer> keyList = chains.get(hf.apply(key));
+        if (keyList.contains(key))
+            keyList.remove(Integer.valueOf(key));
     }
 
     @Override
@@ -229,23 +224,25 @@ class HashTableAux extends HashTable {
 
     @Override
     int getCapacity() {
-        return capacity;
+        return 0;
     }
 
     @Override
     void setCapacity(int capacity) {
-        this.capacity = capacity;
+
     }
 
     @Override
     void insert(int key) {
         for(int i = 0; i<capacity; i++) {
             int h = dhf.apply(key, i);
-            if (this.slots.get(h).available()) {
-                this.slots.set(h, new Value(key));
+            if (slots.get(h).available()) {
+                slots.set(h, new Value(key));
                 return;
             }
         }
+        rehash();
+        insert(key);
     }
 
     @Override
@@ -276,6 +273,23 @@ class HashTableAux extends HashTable {
 
     @Override
     void rehash() {
+        BigInteger doubleCapacity = BigInteger.valueOf(capacity*2);
+        capacity = doubleCapacity.nextProbablePrime().intValue();
+        hf.setBound(capacity);
+
+        ArrayList<Entry> oldSlots = slots;
+        slots = new ArrayList<Entry>(capacity);
+
+        for (int i=0; i<capacity; i++) {
+            slots.add(i, Entry.EMPTY);
+        }
+
+        for (int i=0; i<oldSlots.size(); i++) {
+            if (oldSlots.get(i) instanceof Value) {
+                Value val = (Value) oldSlots.get(i);
+                insert(val.get());
+            }
+        }
     }
 }
 
@@ -284,8 +298,8 @@ class HashTableAux extends HashTable {
 
 
 class HashLinearProbing extends HashTableAux {
-    HashLinearProbing(HashFunction hf, BiFunction<Integer, Integer, Integer> f) {
-        super(hf, f);
+    HashLinearProbing(HashFunction hf) {
+        super(hf, (key, f) -> f);
     }
 
 }
@@ -295,8 +309,8 @@ class HashLinearProbing extends HashTableAux {
 
 
 class HashQuadProbing extends HashTableAux {
-    HashQuadProbing(HashFunction hf, BiFunction<Integer, Integer, Integer> f) {
-        super(hf, f);
+    HashQuadProbing(HashFunction hf) {
+        super(hf, (key, f) -> f*f);
     }
     // write the constructor and uncomment
 }
@@ -306,8 +320,8 @@ class HashQuadProbing extends HashTableAux {
 
 
 class HashDouble extends HashTableAux {
-    HashDouble(HashFunction hf, BiFunction<Integer, Integer, Integer> f) {
-        super(hf, f);
+    HashDouble(HashFunction hf, HashFunction hf2) {
+        super(hf, (key, f) -> f*hf2.apply(key));
     }
     // write the constructor and uncomment
 }

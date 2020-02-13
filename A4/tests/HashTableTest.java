@@ -46,7 +46,7 @@ public class HashTableTest {
 
     @Test
     public void fig511 () {
-/*
+
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashLinearProbing(hf);
         ht.insert(89);
@@ -56,12 +56,12 @@ public class HashTableTest {
         ht.insert(69);
         System.out.println("Fig. 5.11");
         System.out.println(ht);
-*/
+
     }
 
     @Test
     public void fig513 () {
-        /*
+
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashQuadProbing (hf);
         ht.insert(89);
@@ -79,12 +79,12 @@ public class HashTableTest {
         ht.rehash();
         System.out.println("After rehash");
         System.out.println(ht);
-         */
+
     }
 
     @Test
     public void fig518 () {
-        /*
+
         HashFunction hf = new HashMod(10);
         HashFunction hf2 = new HashModThen(7, h -> 7 - h);
         HashTable ht = new HashDouble (hf, hf2);
@@ -95,7 +95,7 @@ public class HashTableTest {
         ht.insert(69);
         System.out.println("Fig. 5.18");
         System.out.println(ht);
-         */
+
     }
 
 }
