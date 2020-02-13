@@ -149,6 +149,15 @@ public class HashTableTest {
     }
 
     @Test
+    public void hashSCdelete () {
+        HashFunction hf = new HashMod(10);
+        HashTable ht = new HashSeparateChaining(hf);
+        ht.insert(10);
+        ht.insert(9);
+        ht.delete(9);
+    }
+
+    @Test
     public void hashLPgetCapacity () {
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashLinearProbing(hf);
