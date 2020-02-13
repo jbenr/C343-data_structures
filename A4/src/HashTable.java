@@ -253,9 +253,11 @@ class HashTableAux extends HashTable {
     }
 
     public boolean search(int key) {
-        for (int i = 0; i<capacity; i++){
-            int h = dhf.apply(key, i);
-            if (!(this.slots.get(h).available()) && this.slots.get(h).toString().equals(String.valueOf(key))) {
+        for(int i =0; i<capacity;i++){
+            int h =dhf.apply(key,i);
+            if (slots.get(h) instanceof Empty)
+                break;
+            if(!( this.slots.get(h).available()) &&  this.slots.get(h).toString().equals(String.valueOf(key))){
                 return true;
             }
         }
