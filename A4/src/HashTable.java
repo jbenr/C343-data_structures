@@ -261,7 +261,7 @@ class HashTableAux extends HashTable {
         }
         return false;
     }
-    
+
     void rehash() {
         BigInteger doubleCapacity = BigInteger.valueOf(capacity*2);
         capacity = doubleCapacity.nextProbablePrime().intValue();

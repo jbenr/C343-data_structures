@@ -146,7 +146,6 @@ public class HashTableTest {
         HashTable ht = new HashSeparateChaining(hf);
         ht.insert(10);
         ht.insert(9);
-        assertEquals(10, chains.get(0));
     }
 
     @Test
