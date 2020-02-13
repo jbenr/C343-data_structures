@@ -222,18 +222,15 @@ class HashTableAux extends HashTable {
         return result;
     }
 
-    @Override
     int getCapacity() {
         return capacity;
     }
 
-    @Override
     void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    @Override
-    void insert(int key) {
+    public void insert(int key) {
         for(int i = 0; i<capacity; i++) {
             int h = dhf.apply(key, i);
             if (slots.get(h).available()) {
@@ -245,8 +242,7 @@ class HashTableAux extends HashTable {
         insert(key);
     }
 
-    @Override
-    void delete(int key) {
+    public void delete(int key) {
         for(int i = 0; i<this.slots.size(); i++) {
             int h = dhf.apply(key, i);
             Entry e = this.slots.get(h);
@@ -260,8 +256,7 @@ class HashTableAux extends HashTable {
         }
     }
 
-    @Override
-    boolean search(int key) {
+    public boolean search(int key) {
         for (int i = 0; i<capacity; i++){
             int h = dhf.apply(key, i);
             if (!(this.slots.get(h).available()) && this.slots.get(h).toString().equals(String.valueOf(key))) {
@@ -277,16 +272,16 @@ class HashTableAux extends HashTable {
         capacity = doubleCapacity.nextProbablePrime().intValue();
         hf.setBound(capacity);
 
-        ArrayList<Entry> oldSlots = slots;
+        ArrayList<Entry> oldSlot = slots;
         slots = new ArrayList<Entry>(capacity);
 
-        for (int i=0; i<capacity; i++) {
+        for (int i = 0; i<capacity; i++) {
             slots.add(i, Entry.EMPTY);
         }
 
-        for (int i=0; i<oldSlots.size(); i++) {
-            if (oldSlots.get(i) instanceof Value) {
-                Value val = (Value) oldSlots.get(i);
+        for (int i = 0; i<oldSlot.size(); i++) {
+            if (oldSlot.get(i) instanceof Value) {
+                Value val = (Value) oldSlot.get(i);
                 insert(val.get());
             }
         }

@@ -141,6 +141,15 @@ public class HashTableTest {
     }
 
     @Test
+    public void hashSCinsert () {
+        HashFunction hf = new HashMod(10);
+        HashTable ht = new HashSeparateChaining(hf);
+        ht.insert(10);
+        ht.insert(9);
+        assertEquals(10, chains.get(0));
+    }
+
+    @Test
     public void hashLPgetCapacity () {
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashLinearProbing(hf);
