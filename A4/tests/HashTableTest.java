@@ -26,6 +26,42 @@ public class HashTableTest {
     }
 
     @Test
+    public void HashLinearProbing() {
+        HashFunction hf = new HashMod(10);
+        HashTable ht = new HashLinearProbing(hf);
+        ht.insert(3);
+        ht.insert(4);
+        ht.insert(5);
+        assertEquals(true, ht.search(3));
+        ht.delete(3);
+        assertEquals(false, ht.search(3));
+        System.out.println(ht);
+    }
+
+    @Test
+    public void HashQuadProbing() {
+        HashFunction hf = new HashMod(10);
+        HashTable ht = new HashQuadProbing(hf);
+        ht.insert(3);
+        ht.insert(4);
+        ht.insert(5);
+        assertEquals(true, ht.search(3));
+        ht.delete(3);
+        assertEquals(false, ht.search(3));
+        System.out.println(ht);
+    }
+
+    @Test
+    public void HashDouble() {
+        HashFunction hf = new HashMod(3);
+        HashFunction hf2 = new HashMod(5);
+        HashTable ht = new HashDouble(hf,hf2);
+        ht.insert(2);
+        assertEquals(false, ht.search(5));
+        assertEquals(true, ht.search(2));
+    }
+
+    @Test
     public void fig55 () {
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashSeparateChaining(hf);
@@ -99,6 +135,12 @@ public class HashTableTest {
     }
 
     @Test
+    public void hashSCsetCapacity () {
+        HashFunction hf = new HashMod(10);
+        HashTable ht = new HashSeparateChaining(hf);
+    }
+
+    @Test
     public void hashLPgetCapacity () {
         HashFunction hf = new HashMod(10);
         HashTable ht = new HashLinearProbing(hf);
@@ -111,6 +153,8 @@ public class HashTableTest {
         HashTable ht = new HashQuadProbing(hf);
         assertEquals(10, ht.getCapacity());
     }
+
+
 
     @Test
     public void hashDgetCapacity () {
