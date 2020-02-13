@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cf579413-79a1-4db7-940c-0bb8b27fc696" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HashTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/HashFunctionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HashFunctionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HashTableTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,17 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.HashTableTest.hashDgetCapacity">
+  <component name="RunManager" selected="JUnit.HashFunctionTest.hashMod">
+    <configuration name="HashFunctionTest.hashMod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A4" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HashFunctionTest" />
+      <option name="METHOD_NAME" value="hashMod" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HashFunctionTest.hashUniversal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A4" />
       <option name="PACKAGE_NAME" value="" />
@@ -69,23 +76,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HashTableTest.hashSCgetCapacity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A4" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HashTableTest" />
-      <option name="METHOD_NAME" value="hashSCgetCapacity" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HashFunctionTest.hashMod" />
+        <item itemvalue="JUnit.HashFunctionTest.hashUniversal" />
         <item itemvalue="JUnit.HashTableTest.hashDgetCapacity" />
         <item itemvalue="JUnit.HashTableTest.hashLPgetCapacity" />
         <item itemvalue="JUnit.HashTableTest.hashQPgetCapacity" />
-        <item itemvalue="JUnit.HashTableTest.hashSCgetCapacity" />
-        <item itemvalue="JUnit.HashFunctionTest.hashUniversal" />
       </list>
     </recent_temporary>
   </component>
@@ -113,7 +110,7 @@
       <updated>1580952504744</updated>
       <workItem from="1580952507768" duration="1322000" />
       <workItem from="1581102818673" duration="4238000" />
-      <workItem from="1581453409528" duration="16183000" />
+      <workItem from="1581453409528" duration="17029000" />
     </task>
     <servers />
   </component>
@@ -129,22 +126,22 @@
       <screen x="0" y="23" width="1440" height="808" />
     </state>
     <state x="539" y="143" key="#com.intellij.ide.util.MemberChooser/0.23.1440.808@0.23.1440.808" timestamp="1581557428752" />
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1581566067923">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1581567131041">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581566067923" />
-    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1581566067922">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1581567131041" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1581567131040">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1581566067922" />
-    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1581566067921">
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1581567131040" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1581567131040">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1581566067921" />
-    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1581566067922">
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1581567131040" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1581567131041">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1581566067922" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1581567131041" />
     <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1581556695602">
       <screen x="0" y="23" width="1440" height="808" />
     </state>

@@ -26,6 +26,9 @@ public class HashFunctionTest {
         assertEqualsL(0, hf.getBound());
         hf.setBound(13);
         assertEqualsL(13, hf.getBound());
+
+        HashFunction hm = new HashMod(10);
+        assertEquals(10, hm.getBound());
     }
 
     @Test
