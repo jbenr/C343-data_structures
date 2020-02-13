@@ -63,36 +63,30 @@ class HashSeparateChaining extends HashTable {
         return result;
     }
 
-    @Override
     int getCapacity() {
         return capacity;
     }
 
-    @Override
     void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
-    @Override
     void insert(int key) {
         LinkedList<Integer> keyList = chains.get(hf.apply(key));
         if (!keyList.contains(key))
             keyList.add(Integer.valueOf(key));
     }
 
-    @Override
     void delete(int key) {
         LinkedList<Integer> keyList = chains.get(hf.apply(key));
         if (keyList.contains(key))
             keyList.remove(Integer.valueOf(key));
     }
 
-    @Override
     boolean search(int key) {
         return chains.get(hf.apply(key)).contains(key);
     }
 
-    @Override
     void rehash() {
         int newcap = BigInteger.valueOf(2*getCapacity()).nextProbablePrime().intValue();
         ArrayList<LinkedList<Integer>> oldchains = chains;
@@ -267,8 +261,7 @@ class HashTableAux extends HashTable {
         }
         return false;
     }
-
-    @Override
+    
     void rehash() {
         BigInteger doubleCapacity = BigInteger.valueOf(capacity*2);
         capacity = doubleCapacity.nextProbablePrime().intValue();
