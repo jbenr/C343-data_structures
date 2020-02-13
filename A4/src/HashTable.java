@@ -224,12 +224,12 @@ class HashTableAux extends HashTable {
 
     @Override
     int getCapacity() {
-        return 0;
+        return capacity;
     }
 
     @Override
     void setCapacity(int capacity) {
-
+        this.capacity = capacity;
     }
 
     @Override

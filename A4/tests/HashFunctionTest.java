@@ -18,6 +18,14 @@ public class HashFunctionTest {
         assertEqualsL(5, hf.apply(5+13*9));
         assertEqualsL(0, hf.apply(13));
         assertEqualsL(1, hf.apply(27));
+
+        assertEqualsL(13, hf.getBound());
+        hf.setBound(5);
+        assertEqualsL(5, hf.getBound());
+        hf.setBound(0);
+        assertEqualsL(0, hf.getBound());
+        hf.setBound(13);
+        assertEqualsL(13, hf.getBound());
     }
 
     @Test
@@ -35,6 +43,14 @@ public class HashFunctionTest {
         assertEqualsL(2, hf.apply(5+17*9));
         assertEqualsL(11, hf.apply(13));
         assertEqualsL(14, hf.apply(27));
+
+        assertEqualsL(17, hf.getBound());
+        hf.setBound(5);
+        assertEqualsL(5, hf.getBound());
+        hf.setBound(0);
+        assertEqualsL(0, hf.getBound());
+        hf.setBound(13);
+        assertEqualsL(13, hf.getBound());
     }
 
     @Test
@@ -57,6 +73,14 @@ public class HashFunctionTest {
         assertEqualsL(2, hf.apply(13));
         assertEqualsL(7, hf.apply(14));
         assertEqualsL(3, hf.apply(15));
+
+        assertEqualsL(10, hf.getBound());
+        hf.setBound(5);
+        assertEqualsL(5, hf.getBound());
+        hf.setBound(0);
+        assertEqualsL(0, hf.getBound());
+        hf.setBound(13);
+        assertEqualsL(13, hf.getBound());
     }
 
 }
