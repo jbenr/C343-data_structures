@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48b830e3-da6c-487a-bdee-c4691011c84f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LineWrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LineWrap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/LineWrapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LineWrapTest.java" afterDir="false" />
@@ -32,12 +31,32 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.LineWrapTest.test1">
+  <component name="RunManager" selected="JUnit.LineWrapTest.myTest">
     <configuration name="LineWrapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A5" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="LineWrapTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LineWrapTest.myTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LineWrapTest" />
+      <option name="METHOD_NAME" value="myTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LineWrapTest.myTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LineWrapTest" />
+      <option name="METHOD_NAME" value="myTest2" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -54,8 +73,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LineWrapTest.test1" />
+        <item itemvalue="JUnit.LineWrapTest.myTest" />
+        <item itemvalue="JUnit.LineWrapTest.myTest2" />
         <item itemvalue="JUnit.LineWrapTest" />
+        <item itemvalue="JUnit.LineWrapTest.test1" />
       </list>
     </recent_temporary>
   </component>
@@ -83,7 +104,7 @@
       <updated>1581528605992</updated>
       <workItem from="1581528609922" duration="1700000" />
       <workItem from="1582069578626" duration="1551000" />
-      <workItem from="1582073585298" duration="4595000" />
+      <workItem from="1582073585298" duration="9459000" />
     </task>
     <servers />
   </component>
@@ -91,22 +112,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1582159283446">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1582170497152">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1582159283446" />
-    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1582159283446">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1582170497152" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1582170497151">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1582159283446" />
-    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1582159283445">
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1582170497151" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1582170497150">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1582159283445" />
-    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1582159283446">
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1582170497150" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1582170497151">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1582159283446" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1582170497151" />
     <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1582073743404">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
@@ -115,5 +136,16 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="385" y="158" width="670" height="676" key="search.everywhere.popup/0.23.1440.811@0.23.1440.811" timestamp="1582070606525" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/tests/LineWrapTest.java</url>
+          <line>244</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

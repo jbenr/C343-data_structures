@@ -19,11 +19,11 @@ public class LineWrapTest {
     public void test1 () throws NoSuchElementE {
         String s = "AAA BB CC DDDDD";
         String s1 = LineWrap.runGreedy(s,6);
-      //  String s2 = LineWrap.runDP(s,6);
-     //   String s3 = LineWrap.dpBU(s,6);
+        String s2 = LineWrap.runDP(s,6);
+        String s3 = LineWrap.dpBU(s,6);
         assertEquals("AAA BB\nCC\nDDDDD", s1);
-     //   assertEquals("AAA\nBB CC\nDDDDD", s2);
-    //   assertEquals("AAA\nBB CC\nDDDDD", s3);
+        assertEquals("AAA\nBB CC\nDDDDD", s2);
+        assertEquals("AAA\nBB CC\nDDDDD", s3);
     }
 
     @Test
@@ -515,5 +515,37 @@ still be done. There is a coolness, a calmness, when the sun does set.
 */
     }
 
+    @Test
+    public void myTest1 () throws NoSuchElementE {
+        String s = "Aaaaaaaaaaaa bbb ccc ddd eee ffffffffffff";
+        String s1 = LineWrap.runGreedy(s,13);
+        String s2 = LineWrap.runDP(s,13);
+        String s3 = LineWrap.dpBU(s,13);
+        System.out.println("Greedy\n" + s1);
+        System.out.println("\nDP\n" + s2);
+        System.out.println("\nBU\n" + s3);
+    }
+
+    @Test
+    public void myTest2 () throws NoSuchElementE {
+        String s = "Sometimes I like to watch movies :)";
+        String s1 = LineWrap.runGreedy(s,9);
+        String s2 = LineWrap.runDP(s,9);
+        String s3 = LineWrap.dpBU(s,9);
+        System.out.println("Greedy\n" + s1);
+        System.out.println("\nDP\n" + s2);
+        System.out.println("\nBU\n" + s3);
+    }
+
+    @Test
+    public void myTest3 () throws NoSuchElementE {
+        String s = "The Boston Red Sox are by far my favorite baseball team.";
+        String s1 = LineWrap.runGreedy(s,20);
+        String s2 = LineWrap.runDP(s,20);
+        String s3 = LineWrap.dpBU(s,20);
+        System.out.println("Greedy\n" + s1);
+        System.out.println("\nDP\n" + s2);
+        System.out.println("\nBU\n" + s3);
+    }
 
 }

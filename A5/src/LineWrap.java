@@ -83,8 +83,36 @@ class LineWrap {
    * get your final dynamic programming solution. Without the hash table, the algorithm
    * will really not work on even a moderate size paragraph.
    */
-  Pair<String,Integer> dpTD(List<String> words, int space) {
-      return null;
+  Pair<String,Integer> dpTD(List<String> words, int space) throws NoSuchElementE {
+      if (hash.containsKey(new Pair<List<String>, Integer>(words, space))) {
+          return hash.get(new Pair<List<String>, Integer>(words, space));
+      }
+
+      Pair<String,Integer> result = new Pair<String, Integer>("",0);
+
+      try {
+          String word = words.getFirst();
+          int badness = space*space*space;
+
+          if (space < word.length()+1) {
+              Pair<String, Integer> newLine = dpTD(words.getRest(), lineWidth - word.length());
+              result = new Pair<String, Integer>("\n" + word + newLine.getFst(), newLine.getSnd() + badness);
+          } else {
+              Pair<String, Integer> newLine = dpTD(words.getRest(), lineWidth - word.length());
+              Pair<String, Integer> other = dpTD(words.getRest(), space - (word.length() + 1));
+
+              if (other.getSnd() >= newLine.getSnd() + badness) {
+                  result = new Pair<String, Integer>("\n" + word + newLine.getFst(), newLine.getSnd() + badness);
+              } else {
+                  result = new Pair<String, Integer>(" " + word + other.getFst(), other.getSnd());
+              }
+          }
+          hash.put(new Pair<List<String>, Integer>(words, space), result);
+          return result;
+
+      } catch(NoSuchElementE e) {
+          return result;
+      }
   }
 
 
@@ -109,8 +137,39 @@ class LineWrap {
    * "manually" not implicitly when entering / exiting recursive calls.
    */
   static String dpBU (String s, int lineWidth) {
-      Map<Pair<Integer,Integer>,Pair<String,Integer>> hash = new HashMap<>();
+      Map<Pair<Integer, Integer>, Pair<String, Integer>> hash = new HashMap<>();
 
-      return null;
+      String[] words = s.split("\\s");
+
+      for (int i = 0; i <= lineWidth; i++) {
+          hash.put(new Pair<Integer, Integer>(words.length, i), new Pair<String, Integer>("", 0));
+      }
+
+      for (int index = words.length-1; index >= 0; index--) {
+          String w = words[index];
+
+          for (int space = 0; space <= lineWidth; space++) {
+              int badness = (int) Math.pow(space, 3);
+
+              if (space < w.length()+1) {
+                  Pair<String, Integer> newLine = hash.get(new Pair<>(index + 1, lineWidth - w.length()));
+                  hash.put(new Pair<>(index, space), new Pair<>("\n" + w + newLine.getFst(), newLine.getSnd() + badness));
+              } else {
+                  Pair<String, Integer> newLine = hash.get(new Pair<>(index + 1, lineWidth - w.length()));
+                  Pair<String, Integer> other = hash.get(new Pair<>(index + 1, space - (w.length() + 1)));
+
+                  if (other.getSnd() >= badness + newLine.getSnd()) {
+                      hash.put(new Pair<>(index, space), new Pair<>("\n" + w + newLine.getFst(), newLine.getSnd() + badness));
+                  } else {
+                      hash.put(new Pair<>(index, space), new Pair<>(" " + w + other.getFst(), other.getSnd()));
+                  }
+              }
+          }
+      }
+
+      String wordies = words[0];
+      Pair<String, Integer> sub = hash.get(new Pair<>(1, lineWidth - wordies.length()));
+      String para = wordies + sub.getFst();
+      return para;
   }
 }
