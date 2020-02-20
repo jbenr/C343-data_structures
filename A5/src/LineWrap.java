@@ -19,8 +19,18 @@ class LineWrap {
    * is inserted instead and the algorithm continues with the rest of the words and
    * an adjusted space.
   */
-  String greedy (List<String> words, int space) {
-      return null;
+  String greedy (List<String> words, int space) throws NoSuchElementE {
+      try {
+          String word = words.getFirst();
+
+          if (space >= word.length()+1) {
+              return " " + word + greedy(words.getRest(), space-(word.length() + 1));
+          } else {
+              return  "\n" + word + greedy(words.getRest(), lineWidth-word.length());
+          }
+      } catch (NoSuchElementE e) {
+          return "";
+      }
   }
 
   /**
@@ -72,7 +82,7 @@ class LineWrap {
    * example (test1). Once that words properly, you can add the hash table management to
    * get your final dynamic programming solution. Without the hash table, the algorithm
    * will really not work on even a moderate size paragraph.
-  */
+   */
   Pair<String,Integer> dpTD(List<String> words, int space) {
       return null;
   }
