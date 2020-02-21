@@ -533,7 +533,7 @@ still be done. There is a coolness, a calmness, when the sun does set.
         String s2 = LineWrap.runDP(s,9);
         String s3 = LineWrap.dpBU(s,9);
         System.out.println("Greedy\n" + s1);
-        System.out.println("\nDP\n" + s2);
+        System.out.println("\nTD\n" + s2);
         System.out.println("\nBU\n" + s3);
     }
 
@@ -544,7 +544,7 @@ still be done. There is a coolness, a calmness, when the sun does set.
         String s2 = LineWrap.runDP(s,20);
         String s3 = LineWrap.dpBU(s,20);
         System.out.println("Greedy\n" + s1);
-        System.out.println("\nDP\n" + s2);
+        System.out.println("\nTD\n" + s2);
         System.out.println("\nBU\n" + s3);
     }
 
