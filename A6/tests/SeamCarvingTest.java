@@ -211,7 +211,7 @@ public class SeamCarvingTest {
             System.out.printf("%d of %d%n", i+1, bound);
             sc.cutSeam();
         }
-        sc.writeImage("balloon-sky-cut.jpg");
+        sc.writeImage("balloon-sky-cut2.jpg");
     }
 
     @Test
