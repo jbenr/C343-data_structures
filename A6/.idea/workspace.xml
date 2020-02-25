@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bb31a78-bf94-4e9d-a916-e55a2f34b5a9" name="Default Changelist" comment="" />
+    <list default="true" id="7bb31a78-bf94-4e9d-a916-e55a2f34b5a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeamCarving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeamCarving.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/SeamCarvingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/SeamCarvingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L6/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/src/minDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/../L6/src/minDistance.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1Y4Cf52OmjovBZ8rWeXUdMAbQyZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,9 +27,32 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.SeamCarvingTest.computeEnergy">
+    <configuration name="SeamCarvingTest.computeEnergy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SeamCarvingTest" />
+      <option name="METHOD_NAME" value="computeEnergy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeamCarvingTest.getBelowNeighbors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SeamCarvingTest" />
+      <option name="METHOD_NAME" value="getBelowNeighbors" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SeamCarvingTest.getHVneighbors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A6" />
       <option name="PACKAGE_NAME" value="" />
@@ -30,9 +65,23 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SeamCarvingTest.computeEnergy" />
+        <item itemvalue="JUnit.SeamCarvingTest.getBelowNeighbors" />
         <item itemvalue="JUnit.SeamCarvingTest.getHVneighbors" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -44,25 +93,45 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582192579893</updated>
+      <workItem from="1582587745994" duration="4573000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1358" height="83" key="GridCell.Tab.0.bottom" timestamp="1582194649846">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state x="100" y="123" width="1240" height="608" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1582607155716">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
+    <state x="100" y="123" width="1240" height="608" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1440.814@0.23.1440.814" timestamp="1582607155716" />
+    <state x="458" y="181" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1582609367856">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="458" y="181" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1440.814@0.23.1440.814" timestamp="1582609367856" />
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1582610292397">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1582610292397" />
     <state width="1358" height="83" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1582194649846" />
-    <state width="1358" height="83" key="GridCell.Tab.0.center" timestamp="1582194649845">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1582610292396">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1582610292396" />
     <state width="1358" height="83" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1582194649845" />
-    <state width="1358" height="83" key="GridCell.Tab.0.left" timestamp="1582194649845">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1582610292395">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1582610292395" />
     <state width="1358" height="83" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1582194649845" />
-    <state width="1358" height="83" key="GridCell.Tab.0.right" timestamp="1582194649845">
-      <screen x="0" y="23" width="1440" height="839" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1582610292396">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1582610292396" />
     <state width="1358" height="83" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1582194649845" />
+    <state x="458" y="197" key="extract.method.dialog" timestamp="1582607474298">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="458" y="197" key="extract.method.dialog/0.23.1440.814@0.23.1440.814" timestamp="1582607474298" />
   </component>
 </project>

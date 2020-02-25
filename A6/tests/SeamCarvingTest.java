@@ -134,7 +134,7 @@ public class SeamCarvingTest {
         assertEquals(23, sc.computeEnergy(629,4));
         assertEquals(0, sc.computeEnergy(673,53));
     }
-
+/*
     @Test
     public void seamSmall () throws IOException {
         SeamCarving sc = new SeamCarving();
@@ -236,6 +236,6 @@ public class SeamCarvingTest {
             sc.cutSeam();
         }
         sc.writeImage("winter-sun-cut2.jpg");
-    }
+    }*/
 
 }

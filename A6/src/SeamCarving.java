@@ -56,7 +56,12 @@ public class SeamCarving {
      */
 
     ArrayList<Position> getHVneighbors(int h, int w) {
-        return null; // to write
+        ArrayList<Position> lst = new ArrayList<Position>();
+        if(h < height-1) { lst.add(new Position(h+1, w)); }
+        if(h != 0) { lst.add(new Position(h-1, w)); }
+        if(w < width-1) { lst.add(new Position(h, w+1)); }
+        if(w != 0) { lst.add(new Position(h, w-1)); }
+        return lst;
     }
 
     /**
@@ -68,7 +73,13 @@ public class SeamCarving {
      */
 
     ArrayList<Position> getBelowNeighbors(int h, int w) {
-        return null; // to write
+        ArrayList<Position> lst = new ArrayList<Position>();
+        if(h < height-1) {
+            lst.add(new Position(h+1, w));
+            if(w < width-1) { lst.add(new Position(h+1, w+1)); }
+            if(w != 0) { lst.add(new Position(h+1, w-1)); }
+        }
+        return lst;
     }
 
     /**
@@ -86,8 +97,20 @@ public class SeamCarving {
      * horizontal and vertical dimensions.
      */
 
-    int computeEnergy(int h, int w) {
-        return 0; // to write
+    double computeEnergy(int h, int w) {
+        int energy = 0;
+        ArrayList<Position> lst = getHVneighbors(h, w);
+        ArrayList<Color> colors = new ArrayList<Color>();
+        for(int i = 0; i < lst.size(); i++) {
+            colors.add(getColor(lst.get(i).getFirst(), lst.get(i).getSecond()));
+        }
+        Color color = getColor(h, w);
+        for(int i = 0; i < colors.size(); i++) {
+            energy = energy + ( (int) Math.pow((color.getRed() - colors.get(i).getRed()), 2) +
+                    (int) Math.pow((color.getGreen() - colors.get(i).getGreen()), 2) +
+                    (int) Math.pow((color.getBlue() - colors.get(i).getBlue()), 2) );
+        }
+        return energy;
     }
 
     /**
