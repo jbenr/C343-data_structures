@@ -1,9 +1,12 @@
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.PipedOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.function.Function;
@@ -12,15 +15,21 @@ public class SeamCarving {
     private int[] pixels;
     private int type, height, width;
 
-    // Field getters
+    int[] getPixels() {
+        return pixels;
+    }
 
-    int[] getPixels () { return pixels; }
-    int getHeight () { return height; }
-    int getWidth () { return width; }
+    int getHeight() {
+        return height;
+    }
 
-    // Read and write images
+    int getWidth() {
+        return width;
+    }
 
-    void readImage (String filename) throws IOException {
+    Map<Position, Pair<List<Position>, Integer>> hash = new WeakHashMap<>();
+
+    void readImage(String filename) throws IOException {
         BufferedImage image = ImageIO.read(new File(filename));
         type = image.getType();
         height = image.getHeight();
@@ -29,137 +38,153 @@ public class SeamCarving {
         image.getRGB(0, 0, width, height, pixels, 0, width);
     }
 
-    void writeImage (String filename) throws IOException {
-        BufferedImage image = new BufferedImage(width,height,type);
-        image.setRGB(0,0,width,height,pixels,0,width);
+    void writeImage(String filename) throws IOException {
+        BufferedImage image = new BufferedImage(width, height, type);
+        image.setRGB(0, 0, width, height, pixels, 0, width);
         ImageIO.write(image, "jpg", new File(filename));
     }
 
-    // Accessing pixels and their neighbors
-
-    /***
-     * By convention, h is the vertical index and w and the horizontal index.
-     * The array of pixels is stored as follows:
-     * [(0,0), (0,1), (0,2), ... (0,width-1), (1,0), (1,1), (1,2), ... (1,width-1), ...]
-     */
     Color getColor(int h, int w) {
         int pixel = pixels[w + h * width];
         return new Color(pixel, true);
     }
 
-    /**
-     * This method takes the position of a pixel (h,w) and returns a list of its
-     * neighbors' positions in the horizontal and vertical directions.
-     * In the general case, these would be at  positions:
-     * (h+1,w), (h-1,w), (h,w+1), (h,w-1).
-     * Of course, care must be taken when dealing with pixels along the boundaries.
-     */
 
     ArrayList<Position> getHVneighbors(int h, int w) {
-        ArrayList<Position> lst = new ArrayList<Position>();
-        if(h < height-1) { lst.add(new Position(h+1, w)); }
-        if(h != 0) { lst.add(new Position(h-1, w)); }
-        if(w < width-1) { lst.add(new Position(h, w+1)); }
-        if(w != 0) { lst.add(new Position(h, w-1)); }
-        return lst;
+        Position r, l, t, b;
+        ArrayList<Position> ghvn = new ArrayList<Position>();
+        if (w == 0) {
+            l = null;
+        } else {
+            l = new Position(h, w-1);
+            ghvn.add(l);
+        }
+
+        if (w == this.width-1) {
+            r = null;
+        } else {
+            r = new Position(h, w+1);
+            ghvn.add(r);
+        }
+        if (h == 0) {
+            t = null;
+        } else {
+            t = new Position(h-1, w);
+            ghvn.add(t);
+        }
+
+        if (h == this.height-1) {
+            b = null;
+        } else {
+            b = new Position(h+1, w);
+            ghvn.add(b);
+        }
+        return ghvn;
     }
 
-    /**
-     * This method takes the position of a pixel (h,w) and returns a list of its
-     * neighbors' positions that are below and touching it.
-     * In the general case, these would be at  positions:
-     * (h+1,w-1), (h+1,w), (h+1,w+1)
-     * Of course, care must be taken when dealing with pixels along the boundaries.
-     */
 
     ArrayList<Position> getBelowNeighbors(int h, int w) {
-        ArrayList<Position> lst = new ArrayList<Position>();
-        if(h < height-1) {
-            lst.add(new Position(h+1, w));
-            if(w < width-1) { lst.add(new Position(h+1, w+1)); }
-            if(w != 0) { lst.add(new Position(h+1, w-1)); }
+        ArrayList<Position> r = new ArrayList<>();
+        if (h != height-1 && w != width-1) {
+            r.add(new Position(h+1, w+1));
         }
-        return lst;
+        if (h != height - 1 && w != 0) {
+            r.add(new Position(h+1, w-1));
+        }
+        if (h != height-1) {
+            r.add(new Position(h+1, w));
+        }
+        return r;
     }
 
-    /**
-     * This method takes the position of a pixel (h,w) and computes its 'energy'
-     * which is an estimate of how it differs from its neighbors. The computation
-     * is as follows. First, using the method getColor, get the colors of the pixel
-     * and all its neighbors in the horizontal and vertical dimensions. The energy
-     * is the sum of the squares of the differences along each of the RGB components
-     * of the color. For example, given two colors c1 and c2 (for the current pixel
-     * and one of its neighbors), we would compute this component of the energy as:
-     *   square (c1.getRed() - c2.getRed()) +
-     *   square (c1.getGreen() - c2.getGreen()) +
-     *   square (c1.getBlue() - c2.getBlue())
-     * The total energy is this quantity summed over all the neighbors in the
-     * horizontal and vertical dimensions.
-     */
 
-    double computeEnergy(int h, int w) {
-        int energy = 0;
-        ArrayList<Position> lst = getHVneighbors(h, w);
-        ArrayList<Color> colors = new ArrayList<Color>();
-        for(int i = 0; i < lst.size(); i++) {
-            colors.add(getColor(lst.get(i).getFirst(), lst.get(i).getSecond()));
+    int computeEnergy(int h, int w) {
+
+        ArrayList<Position> n = getHVneighbors(h, w);
+        int r = 0;
+        final Color cc = getColor(h, w);
+
+        for (Position i : n) {
+            int red = getColor(i.getFirst(), i.getSecond()).getRed();
+            int green = getColor(i.getFirst(), i.getSecond()).getGreen();
+            int blue = getColor(i.getFirst(), i.getSecond()).getBlue();
+            int sRed = (int) Math.pow((cc.getRed() - red), 2);
+            int sGreen = (int) Math.pow((cc.getGreen() - green), 2);
+            int sBlue = (int) Math.pow((cc.getBlue() - blue), 2);
+            int temp = sRed + sBlue + sGreen;
+            r = r + temp;
         }
-        Color color = getColor(h, w);
-        for(int i = 0; i < colors.size(); i++) {
-            energy = energy + ( (int) Math.pow((color.getRed() - colors.get(i).getRed()), 2) +
-                    (int) Math.pow((color.getGreen() - colors.get(i).getGreen()), 2) +
-                    (int) Math.pow((color.getBlue() - colors.get(i).getBlue()), 2) );
-        }
-        return energy;
+        return (int)r;
     }
 
-    /**
-     * This next method is the core of our dynamic programming algorithm. We will
-     * use the top-down approach with the given hash table (which you should initialize).
-     * The key to the hash table is a pixel position. The value stored at each key
-     * is the "seam" that starts with this pixel all the way to the bottom
-     * of the image and its cost.
-     *
-     * The method takes the position of a pixel and returns the seam from this pixel
-     * and its cost using the following steps:
-     *   - compute the energy of the given pixel
-     *   - get the list of neighbors below the current pixel
-     *   - Base case: if the list of neighbors is empty, return the following pair:
-     *       < [<h,w>], energy >
-     *     the first component of the pair is a list containing just one position
-     *     (the current one); the second component of the pair is the current energy.
-     *   - Recursive case: we will consider each of the neighbors below the current
-     *     pixel and choose the one with the cheapest seam.
-     *
-     */
     Pair<List<Position>, Integer> findSeam(int h, int w) {
-        return null; // to write
+
+        Pair<List<Position>, Integer> min = null;
+        int best = Integer.MAX_VALUE;
+        ArrayList<Position> belowNeighbors = getBelowNeighbors(h, w);
+        if (belowNeighbors.isEmpty()) {
+            return new Pair<List<Position>, Integer>((List<Position>) new Node<Position>(new Position(h, w), new Empty<>()), computeEnergy(h, w));
+        }
+        int currentEnergy = computeEnergy(h, w);
+        Position currentPixel = new Position(h, w);
+        Pair<List<Position>, Integer> finalSeam = null;
+        if (hash.containsKey(currentPixel)) {
+            return hash.get(currentPixel);
+        } else {
+            for (Position childPixel : belowNeighbors) {
+                Pair<List<Position>, Integer> childSeam = findSeam(childPixel.getFirst(), childPixel.getSecond());
+                if (childSeam.getSecond() < best) {
+                    best = childSeam.getSecond();
+                    min = childSeam;
+                }
+            }
+            finalSeam = new Pair<>(new Node<>(currentPixel, min.getFirst()), currentEnergy + min.getSecond());
+            hash.put(currentPixel, finalSeam);
+        }
+        return finalSeam;
     }
 
-    /**
-     * This next method is relatively short. It performs the following actions:
-     *   - clears the hash table
-     *   - iterate over the first row of the image, computing the seam
-     *     from its position and returning the best one.
-     */
+    Pair<List<Position>, Integer> bestSeam() {
+        hash.clear();
+        Pair<List<Position>, Integer> bs = new Pair<>(new Empty<>(), Integer.MAX_VALUE);
 
-    Pair<List<Position>,Integer> bestSeam () {
-        return null; // to write
+        for (int i = 1; i < width; i++) {
+            Pair<List<Position>, Integer> temp = findSeam(0, i);
+            if (temp.getSecond() < bs.getSecond()) {
+                bs = temp;
+            }
+        }
+        return bs;
     }
 
-    /**
-     * The last method puts its all together:
-     *   - it finds the best seam
-     *   - then it creates a new array of pixels representing an image of dimensions
-     *     (height,width-1)
-     *   - it then copies the old array pixels to the new arrays skipping the pixels
-     *     in the seam
-     *   - the method does not return anything: instead it updates the width and
-     *     pixels instance variables to the new values.
-     */
-    void cutSeam () {
-        // to write
+    void cutSeam() {
+        int[] cs = new int[height * (width - 1)];
+        Pair<List<Position>, Integer> best = bestSeam();
+        List<Position> list = best.getFirst();
+
+        try {
+            List<Position> pl = best.getFirst();
+            Position p1 = pl.getFirst();
+            for (int h = 0; h < height; h++) {
+                int w2 = 0;
+                for (int w = 0; w < width; w++) {
+                    if (pl.isEmpty()) {
+                        cs[h * (width - 1) + w2] = pixels[h + w2];
+                        w2 = w2+1;
+                    } else if ((pl.getFirst().getFirst() == h) && (pl.getFirst().getSecond() == w)) {
+                        pl = pl.getRest();
+                    } else {
+                        cs[h * (width - 1) + w2] = pixels[h + w2];
+                        w2 = w2+1;
+                    }
+                    pl = pl.getRest();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        pixels = cs;
+        width = width - 1;
     }
+
 }
-
-
