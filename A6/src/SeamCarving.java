@@ -51,70 +51,41 @@ public class SeamCarving {
 
 
     ArrayList<Position> getHVneighbors(int h, int w) {
-        Position r, l, t, b;
-        ArrayList<Position> ghvn = new ArrayList<Position>();
-        if (w == 0) {
-            l = null;
-        } else {
-            l = new Position(h, w-1);
-            ghvn.add(l);
-        }
-
-        if (w == this.width-1) {
-            r = null;
-        } else {
-            r = new Position(h, w+1);
-            ghvn.add(r);
-        }
-        if (h == 0) {
-            t = null;
-        } else {
-            t = new Position(h-1, w);
-            ghvn.add(t);
-        }
-
-        if (h == this.height-1) {
-            b = null;
-        } else {
-            b = new Position(h+1, w);
-            ghvn.add(b);
-        }
-        return ghvn;
+        ArrayList<Position> lst = new ArrayList<Position>();
+        if(h < height-1) { lst.add(new Position(h+1, w)); }
+        if(h != 0) { lst.add(new Position(h-1, w)); }
+        if(w < width-1) { lst.add(new Position(h, w+1)); }
+        if(w != 0) { lst.add(new Position(h, w-1)); }
+        return lst;
     }
 
 
     ArrayList<Position> getBelowNeighbors(int h, int w) {
-        ArrayList<Position> r = new ArrayList<>();
-        if (h != height-1 && w != width-1) {
-            r.add(new Position(h+1, w+1));
+        ArrayList<Position> lst = new ArrayList<Position>();
+        if(h < height-1) {
+            lst.add(new Position(h+1, w));
+            if(w < width-1) { lst.add(new Position(h+1, w+1)); }
+            if(w != 0) { lst.add(new Position(h+1, w-1)); }
         }
-        if (h != height - 1 && w != 0) {
-            r.add(new Position(h+1, w-1));
-        }
-        if (h != height-1) {
-            r.add(new Position(h+1, w));
-        }
-        return r;
+        return lst;
     }
 
 
     int computeEnergy(int h, int w) {
 
-        ArrayList<Position> n = getHVneighbors(h, w);
-        int r = 0;
-        final Color cc = getColor(h, w);
-
-        for (Position i : n) {
-            int red = getColor(i.getFirst(), i.getSecond()).getRed();
-            int green = getColor(i.getFirst(), i.getSecond()).getGreen();
-            int blue = getColor(i.getFirst(), i.getSecond()).getBlue();
-            int sRed = (int) Math.pow((cc.getRed() - red), 2);
-            int sGreen = (int) Math.pow((cc.getGreen() - green), 2);
-            int sBlue = (int) Math.pow((cc.getBlue() - blue), 2);
-            int temp = sRed + sBlue + sGreen;
-            r = r + temp;
+        int energy = 0;
+        ArrayList<Position> lst = getHVneighbors(h, w);
+        ArrayList<Color> colors = new ArrayList<Color>();
+        for(int i = 0; i < lst.size(); i++) {
+            colors.add(getColor(lst.get(i).getFirst(), lst.get(i).getSecond()));
         }
-        return (int)r;
+        Color color = getColor(h, w);
+        for(int i = 0; i < colors.size(); i++) {
+            energy = energy + ( (int) Math.pow((color.getRed() - colors.get(i).getRed()), 2) +
+                    (int) Math.pow((color.getGreen() - colors.get(i).getGreen()), 2) +
+                    (int) Math.pow((color.getBlue() - colors.get(i).getBlue()), 2) );
+        }
+        return energy;
     }
 
     Pair<List<Position>, Integer> findSeam(int h, int w) {
@@ -126,10 +97,10 @@ public class SeamCarving {
             return new Pair<List<Position>, Integer>((List<Position>) new Node<Position>(new Position(h, w), new Empty<>()), computeEnergy(h, w));
         }
         int currentEnergy = computeEnergy(h, w);
-        Position currentPixel = new Position(h, w);
-        Pair<List<Position>, Integer> finalSeam = null;
-        if (hash.containsKey(currentPixel)) {
-            return hash.get(currentPixel);
+        Position currentPix = new Position(h, w);
+        Pair<List<Position>, Integer> result = null;
+        if (hash.containsKey(currentPix)) {
+            return hash.get(currentPix);
         } else {
             for (Position childPixel : belowNeighbors) {
                 Pair<List<Position>, Integer> childSeam = findSeam(childPixel.getFirst(), childPixel.getSecond());
@@ -138,10 +109,10 @@ public class SeamCarving {
                     min = childSeam;
                 }
             }
-            finalSeam = new Pair<>(new Node<>(currentPixel, min.getFirst()), currentEnergy + min.getSecond());
-            hash.put(currentPixel, finalSeam);
+            result = new Pair<>(new Node<>(currentPix, min.getFirst()), currentEnergy + min.getSecond());
+            hash.put(currentPix, result);
         }
-        return finalSeam;
+        return result;
     }
 
     Pair<List<Position>, Integer> bestSeam() {
