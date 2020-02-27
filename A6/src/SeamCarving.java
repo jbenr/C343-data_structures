@@ -96,11 +96,11 @@ public class SeamCarving {
         if (belowNeighbors.isEmpty()) {
             return new Pair<List<Position>, Integer>((List<Position>) new Node<Position>(new Position(h, w), new Empty<>()), computeEnergy(h, w));
         }
-        int currentEnergy = computeEnergy(h, w);
-        Position currentPix = new Position(h, w);
+        int curEnergy = computeEnergy(h, w);
+        Position curPix = new Position(h, w);
         Pair<List<Position>, Integer> result = null;
-        if (hash.containsKey(currentPix)) {
-            return hash.get(currentPix);
+        if (hash.containsKey(curPix)) {
+            return hash.get(curPix);
         } else {
             for (Position childPixel : belowNeighbors) {
                 Pair<List<Position>, Integer> childSeam = findSeam(childPixel.getFirst(), childPixel.getSecond());
@@ -109,8 +109,8 @@ public class SeamCarving {
                     min = childSeam;
                 }
             }
-            result = new Pair<>(new Node<>(currentPix, min.getFirst()), currentEnergy + min.getSecond());
-            hash.put(currentPix, result);
+            result = new Pair<>(new Node<>(curPix, min.getFirst()), min.getSecond()+curEnergy);
+            hash.put(curPix, result);
         }
         return result;
     }
@@ -155,7 +155,7 @@ public class SeamCarving {
             e.printStackTrace();
         }
         pixels = cs;
-        width = width - 1;
+        width = width-1;
     }
 
 }

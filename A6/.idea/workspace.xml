@@ -4,8 +4,8 @@
     <list default="true" id="7bb31a78-bf94-4e9d-a916-e55a2f34b5a9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../A5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A5/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balloon-sky-cut.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/balloon-sky-cut.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SeamCarving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeamCarving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/winter-sun-cut2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/winter-sun-cut2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../L6/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L6/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../L6/src/minDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/../L6/src/minDistance.java" afterDir="false" />
     </list>
@@ -31,7 +31,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="JUnit.SeamCarvingTest.cutBigSunHalf">
+  <component name="RunManager" selected="JUnit.SeamCarvingTest.cutBigBalloonTWoThirds">
     <configuration name="SeamCarvingTest.bestSeam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A6" />
       <option name="PACKAGE_NAME" value="" />
@@ -62,6 +62,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SeamCarvingTest.cutBigSunThird" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A6" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SeamCarvingTest" />
+      <option name="METHOD_NAME" value="cutBigSunThird" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SeamCarvingTest.cutSmall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A6" />
       <option name="PACKAGE_NAME" value="" />
@@ -72,23 +82,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SeamCarvingTest.seamBig" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A6" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SeamCarvingTest" />
-      <option name="METHOD_NAME" value="seamBig" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SeamCarvingTest.cutBigSunHalf" />
         <item itemvalue="JUnit.SeamCarvingTest.cutBigBalloonTWoThirds" />
+        <item itemvalue="JUnit.SeamCarvingTest.cutBigSunThird" />
+        <item itemvalue="JUnit.SeamCarvingTest.cutBigSunHalf" />
         <item itemvalue="JUnit.SeamCarvingTest.cutSmall" />
         <item itemvalue="JUnit.SeamCarvingTest.bestSeam" />
-        <item itemvalue="JUnit.SeamCarvingTest.seamBig" />
       </list>
     </recent_temporary>
   </component>
@@ -114,7 +114,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582192579893</updated>
-      <workItem from="1582587745994" duration="7665000" />
+      <workItem from="1582587745994" duration="8791000" />
     </task>
     <servers />
   </component>
@@ -130,33 +130,33 @@
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="458" y="181" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.23.1440.814@0.23.1440.814" timestamp="1582609367856" />
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1582779910753">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1582780359811">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1582738161657" />
     <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1582778998094" />
-    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1582779910753" />
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1582780359811" />
     <state width="1358" height="83" key="GridCell.Tab.0.bottom/0.23.1440.839@0.23.1440.839" timestamp="1582194649846" />
-    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1582779910752">
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1582780359810">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1582738161656" />
     <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1582778998093" />
-    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1582779910752" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1582780359810" />
     <state width="1358" height="83" key="GridCell.Tab.0.center/0.23.1440.839@0.23.1440.839" timestamp="1582194649845" />
-    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1582779910751">
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1582780359810">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1582738161655" />
     <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1582778998093" />
-    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1582779910751" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1582780359810" />
     <state width="1358" height="83" key="GridCell.Tab.0.left/0.23.1440.839@0.23.1440.839" timestamp="1582194649845" />
-    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1582779910752">
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1582780359810">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1582738161657" />
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1582778998093" />
-    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1582779910752" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1582780359810" />
     <state width="1358" height="83" key="GridCell.Tab.0.right/0.23.1440.839@0.23.1440.839" timestamp="1582194649845" />
     <state width="1398" height="258" key="GridCell.Tab.1.bottom" timestamp="1582694486597">
       <screen x="0" y="23" width="1440" height="812" />
