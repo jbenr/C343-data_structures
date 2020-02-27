@@ -118,23 +118,23 @@ public class SeamCarvingTest {
 
     @Test
     public void computeEnergy () {
-        assertEquals(20, sc.computeEnergy(28,748));
-        assertEquals(84, sc.computeEnergy(59,406));
-        assertEquals(39, sc.computeEnergy(92,462));
-        assertEquals(0, sc.computeEnergy(101,332));
-        assertEquals(96, sc.computeEnergy(237,602));
-        assertEquals(7, sc.computeEnergy(387,34));
-        assertEquals(0, sc.computeEnergy(394,673));
-        assertEquals(6, sc.computeEnergy(397,213));
-        assertEquals(84, sc.computeEnergy(442,63));
-        assertEquals(16, sc.computeEnergy(510,388));
-        assertEquals(0, sc.computeEnergy(535,899));
-        assertEquals(27, sc.computeEnergy(546,689));
-        assertEquals(26, sc.computeEnergy(599,359));
-        assertEquals(23, sc.computeEnergy(629,4));
-        assertEquals(0, sc.computeEnergy(673,53));
+        assertEquals(20, (int)sc.computeEnergy(28,748));
+        assertEquals(84, (int)sc.computeEnergy(59,406));
+        assertEquals(39, (int)sc.computeEnergy(92,462));
+        assertEquals(0, (int)sc.computeEnergy(101,332));
+        assertEquals(96, (int)sc.computeEnergy(237,602));
+        assertEquals(7, (int)sc.computeEnergy(387,34));
+        assertEquals(0, (int)sc.computeEnergy(394,673));
+        assertEquals(6, (int)sc.computeEnergy(397,213));
+        assertEquals(84, (int)sc.computeEnergy(442,63));
+        assertEquals(16, (int)sc.computeEnergy(510,388));
+        assertEquals(0, (int)sc.computeEnergy(535,899));
+        assertEquals(27, (int)sc.computeEnergy(546,689));
+        assertEquals(26, (int)sc.computeEnergy(599,359));
+        assertEquals(23, (int)sc.computeEnergy(629,4));
+        assertEquals(0, (int)sc.computeEnergy(673,53));
     }
-/*
+
     @Test
     public void seamSmall () throws IOException {
         SeamCarving sc = new SeamCarving();
@@ -236,6 +236,6 @@ public class SeamCarvingTest {
             sc.cutSeam();
         }
         sc.writeImage("winter-sun-cut2.jpg");
-    }*/
+    }
 
 }
