@@ -12,7 +12,7 @@ public class SeamCarvingTest2 {
     final String am = "Amr Sabry";
     private SeamCarving sc;
     private int height, width;
-    private String fileName = "";
+    private String fileName = "/home/b351-sandbox/prod/work-area/3/tests" + "/A6/";
 
 
     @Before
@@ -25,7 +25,7 @@ public class SeamCarvingTest2 {
     }
 
 
-    @Test(timeout = 11000)
+    @Test(timeout = 60000)
     @TestCase(author="Maazin Jawad/Amr", score=1)
     public void bestSeam() throws IOException {
         Pair<List<Position>, Integer> r = sc.bestSeam();
@@ -52,7 +52,7 @@ public class SeamCarvingTest2 {
 
 
     /** @noinspection Duplicates*/
-    @Test(timeout = 600)
+    @Test(timeout = 1600)
     @TestCase(name="Provided Test: cutSmall()", author = am, score=1)
     public void cutSmall() throws IOException {
         SeamCarving sc = new SeamCarving();
@@ -68,7 +68,7 @@ public class SeamCarvingTest2 {
 
 
     /** @noinspection Duplicates*/
-    @Test(timeout = 16500)
+    @Test(timeout = 46500)
     @TestCase(name="cutHard()", author = "Maaz", score=2)
     public void cutMedium() throws IOException {
         SeamCarving sc = new SeamCarving();
@@ -105,32 +105,5 @@ public class SeamCarvingTest2 {
 
 
     }
-
-    @Test(timeout = 16500)
-    @TestCase(author = "Maaz", score=1)
-    public void cutIterationTest() throws IOException {
-        SeamCarving sc = new SeamCarving();
-        sc.readImage(fileName + "small-axe.png");
-        int height = sc.getHeight();
-        int width = sc.getWidth();
-        for (int i = 0; i < 20; i++) {
-            sc.cutSeam();
-        }
-        assertEquals(height * (width - 20), sc.getPixels().length);
-        int[] testPixels = sc.getPixels();
-        String s="";
-        for (int i = 0;  i < (sc.getHeight()-1) * (sc.getWidth()-1); i++) {
-            s+=testPixels[i]+", ";
-        }
-        System.out.println(s);
-        sc.writeImage("axe.jpg");
-
-
-
-
-    }
-
-
-
 
 }
