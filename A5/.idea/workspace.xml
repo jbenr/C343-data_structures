@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48b830e3-da6c-487a-bdee-c4691011c84f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/LineWrapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LineWrapTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="48b830e3-da6c-487a-bdee-c4691011c84f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,6 +101,7 @@
       <workItem from="1581528609922" duration="1700000" />
       <workItem from="1582069578626" duration="1551000" />
       <workItem from="1582073585298" duration="10060000" />
+      <workItem from="1582313611580" duration="23000" />
     </task>
     <servers />
   </component>
@@ -135,10 +133,10 @@
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1582170497151" />
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1582183691740" />
     <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1582172060779" />
-    <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1582073743404">
+    <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1582313614152">
       <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1582073743404" />
+    <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1582313614152" />
     <state x="385" y="158" width="670" height="676" key="search.everywhere.popup" timestamp="1582070606525">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
