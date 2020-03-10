@@ -174,7 +174,7 @@ class BSTNode extends BST {
         return null; // TODO
     }
 
-    BST BSTdelete(int key) {
+    BST BSTdelete(int key) throws EmptyBSTE {
         return null; // TODO
     }
 
