@@ -308,7 +308,7 @@ class AVLNode extends AVL {
 
     AVL AVLdelete(int key) throws EmptyAVLE {
         AVL finalTree;
-        try {
+
             if (key < data) {
                 AVL newLeft = left.AVLdelete(key);
                 finalTree = new AVLNode(data, newLeft, right);
@@ -317,7 +317,7 @@ class AVLNode extends AVL {
                 }
 
             } else if (key > data) {
-                AVL newRight = right.AVLinsert(key);
+                AVL newRight = right.AVLdelete(key);
                 finalTree = new AVLNode(data, left, newRight);
                 if (newRight.AVLHeight() + 1 < left.AVLHeight()) {
                     finalTree = finalTree.AVLrotateRight();
@@ -335,10 +335,6 @@ class AVLNode extends AVL {
                     finalTree = right;
                 }
             }
-        }catch(EmptyAVLE e){
-            throw new EmptyAVLE();
-        }
-
 
 
         return finalTree;
