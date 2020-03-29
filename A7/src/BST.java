@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
@@ -29,12 +30,16 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
     // one-by-one and insert them into the resulting AVL tree.
     static AVL toAVL (BST bst) {
 
-        Iterator<Integer> bstIterator = bst.iterator();
-        AVLNode avl = new AVLNode(bstIterator.next(), new EmptyAVL(), new EmptyAVL());
-        while(bstIterator.hasNext()){
-            avl.AVLinsert(bstIterator.next());
+        try {
+            Iterator<Integer> bstIterator = bst.iterator();
+            AVLNode avl = new AVLNode(bstIterator.next(), new EmptyAVL(), new EmptyAVL());
+            while (bstIterator.hasNext()) {
+                avl.AVLinsert(bstIterator.next());
+            }
+            return avl;
+        }catch(EmptyStackException e){
+            return AVL.EAVL;
         }
-        return avl;
 
     }
 
@@ -201,7 +206,7 @@ class BSTNode extends BST {
     BST BSTinsert(int key) {
 
         BSTNode b = null;
-        if(key<=this.data){
+        if(key<this.data){
            b = new BSTNode(data,left.BSTinsert(key),right);
         }
         else{

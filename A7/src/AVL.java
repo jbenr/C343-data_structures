@@ -217,7 +217,7 @@ class AVLNode extends AVL {
 
     AVL AVLinsert(int key) {
         AVL b;
-        if (key <= this.data) {
+        if (key < this.data) {
             AVL newLeft = left.AVLinsert(key);
             b = new AVLNode(data, newLeft, right);
 
@@ -306,33 +306,35 @@ class AVLNode extends AVL {
 
     AVL AVLdelete(int key) throws EmptyAVLE {
         AVL finalTree;
-        if (key < data){
-            AVL newLeft = left.AVLdelete(key);
-            finalTree = new AVLNode(data,newLeft, right);
-            if(newLeft.AVLHeight()+1 < right.AVLHeight()){
-                finalTree = finalTree.AVLrotateLeft();
-            }
-
-        }
-        else if(key>data){
-            AVL newRight = right.AVLinsert(key);
-            finalTree= new AVLNode(data,left,newRight);
-            if(newRight.AVLHeight()+1 < left.AVLHeight()){
-                finalTree = finalTree.AVLrotateRight();
-            }
-        }
-        else{
-            try {
-                Pair<Integer, AVL> largestElementOnLeftAndBalancedLeft = left.AVLshrink();
-                finalTree = new AVLNode(largestElementOnLeftAndBalancedLeft.getFirst(), largestElementOnLeftAndBalancedLeft.getSecond(), right);
-                if (largestElementOnLeftAndBalancedLeft.getSecond().AVLHeight() +1 < right.AVLHeight()) {
-                    finalTree= finalTree.AVLrotateLeft();
+        try {
+            if (key < data) {
+                AVL newLeft = left.AVLdelete(key);
+                finalTree = new AVLNode(data, newLeft, right);
+                if (newLeft.AVLHeight() + 1 < right.AVLHeight()) {
+                    finalTree = finalTree.AVLrotateLeft();
                 }
 
-            }catch(EmptyAVLE e){
-                //return right if "this" doesnt have a left
-                finalTree= right;
+            } else if (key > data) {
+                AVL newRight = right.AVLinsert(key);
+                finalTree = new AVLNode(data, left, newRight);
+                if (newRight.AVLHeight() + 1 < left.AVLHeight()) {
+                    finalTree = finalTree.AVLrotateRight();
+                }
+            } else {
+                try {
+                    Pair<Integer, AVL> largestElementOnLeftAndBalancedLeft = left.AVLshrink();
+                    finalTree = new AVLNode(largestElementOnLeftAndBalancedLeft.getFirst(), largestElementOnLeftAndBalancedLeft.getSecond(), right);
+                    if (largestElementOnLeftAndBalancedLeft.getSecond().AVLHeight() + 1 < right.AVLHeight()) {
+                        finalTree = finalTree.AVLrotateLeft();
+                    }
+
+                } catch (EmptyAVLE e) {
+                    //return right if "this" doesnt have a left
+                    finalTree = right;
+                }
             }
+        }catch(EmptyAVLE e){
+            throw new EmptyAVLE();
         }
 
 
