@@ -1,5 +1,6 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Stack;
 
 //-----------------------------------------------------------------------
 // Empty BST exception
@@ -21,13 +22,20 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
 
     // A leaf is a tree with empty left and right children
     static BST BSTLeaf(int elem) {
-        return null; // TODO
+        return new BSTNode(elem, EBST, EBST); // TODO
     }
 
     // Use the iterator (that you need to define below) to get the BST nodes
     // one-by-one and insert them into the resulting AVL tree.
     static AVL toAVL (BST bst) {
-        return null; // TODO
+
+        Iterator<Integer> bstIterator = bst.iterator();
+        AVLNode avl = new AVLNode(bstIterator.next(), new EmptyAVL(), new EmptyAVL());
+        while(bstIterator.hasNext()){
+            avl.AVLinsert(bstIterator.next());
+        }
+        return avl;
+
     }
 
     //--------------------------
@@ -120,7 +128,7 @@ class EmptyBST extends BST {
     //--------------------------
 
     public Iterator<Integer> iterator() {
-        return new Iterator<>() {
+        return new Iterator<Integer>() {
             public boolean hasNext() {
                 return false;
             }
@@ -142,24 +150,31 @@ class BSTNode extends BST {
 
     // constructor TODO
 
+    public BSTNode(int data, BST left, BST right){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+        height = Math.max(left.BSTHeight(),right.BSTHeight())+1;
+    }
+
     int BSTData() throws EmptyBSTE {
-        return 0; // TODO
+        return data;
     }
 
     BST BSTLeft() throws EmptyBSTE {
-        return null; // TODO
+        return left;
     }
 
     BST BSTRight() throws EmptyBSTE {
-        return null; // TODO
+        return right;
     }
 
     int BSTHeight() {
-        return 0; // TODO
+        return height; // TODO
     }
 
     boolean isEmpty() {
-        return false; // TODO
+        return false;
     }
 
     //--------------------------
@@ -167,19 +182,62 @@ class BSTNode extends BST {
     //--------------------------
 
     boolean BSTfind(int key) {
-        return false; // TODO
+
+        boolean found = false;
+        if (key == this.data){
+            found = true;
+        }
+        else if(key<this.data){
+            found = left.BSTfind(key);
+        }
+        else{
+            found = right.BSTfind(key);
+        }
+
+        return found;
     }
 
+    /** @noinspection Duplicates*/
     BST BSTinsert(int key) {
-        return null; // TODO
+
+        BSTNode b = null;
+        if(key<=this.data){
+           b = new BSTNode(data,left.BSTinsert(key),right);
+        }
+        else{
+           b = new BSTNode(data, left, right.BSTinsert(key));
+        }
+
+return b;
     }
 
+
+
+    /** @noinspection Duplicates*/
     BST BSTdelete(int key) throws EmptyBSTE {
-        return null; // TODO
+        if (key == this.data){
+            try {
+                Pair<Integer, BST> leftMostChildOnRightAndTreeWithoutIt = right.BSTdeleteLeftMostLeaf();
+                return new BSTNode(leftMostChildOnRightAndTreeWithoutIt.getFirst(), left, leftMostChildOnRightAndTreeWithoutIt.getSecond());
+            }catch(EmptyBSTE e){
+                return left;
+            }
+        }
+        else if(key<this.data){
+            return new BSTNode(data, left.BSTdelete(key),right);
+        }
+        else{
+            return new BSTNode(data, left,right.BSTdelete(key));
+        }
     }
 
     Pair<Integer, BST> BSTdeleteLeftMostLeaf() {
-        return null; // TODO
+        try{
+            Pair<Integer, BST> alpha = left.BSTdeleteLeftMostLeaf();
+            return new Pair<Integer,BST>(alpha.getFirst(),new BSTNode(data, alpha.getSecond() ,right));
+        }catch(EmptyBSTE e){
+            return new Pair<>(data, right);
+        }
     }
 
     //--------------------------
@@ -203,8 +261,56 @@ class BSTNode extends BST {
     //--------------------------
 
     public Iterator<Integer> iterator() {
-        return null; // TODO
+        return new TreeIterator(this);
     }
+
+
+}
+
+class TreeIterator implements Iterator<Integer>{
+
+
+    Stack<BST> stack = new Stack<>();
+
+    public TreeIterator(BST b){
+        loadStack(b);
+    }
+
+
+
+
+    @Override
+    public boolean hasNext() {
+        return !stack.isEmpty();
+    }
+
+    @Override
+    public Integer next() {
+        BST s = stack.pop();
+        int t= 0;
+        try {
+            t = s.BSTData();
+            this.loadStack(s.BSTRight());
+        } catch (EmptyBSTE emptyBSTE) {
+            emptyBSTE.printStackTrace();
+        }
+
+
+
+        return t;
+    }
+
+    private void loadStack(BST root){
+        if (!root.isEmpty()){
+            stack.push(root);
+            try {
+                loadStack(root.BSTLeft());
+            } catch (EmptyBSTE emptyBSTE) {
+                emptyBSTE.printStackTrace();
+            }
+        }
+    }
+
 }
 
 //-----------------------------------------------------------------------

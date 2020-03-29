@@ -110,34 +110,58 @@ public class SeamCarving {
 
     Map<Position, Pair<List<Position>, Integer>> hash = new WeakHashMap<>();
 
-    Pair<List<Position>, Integer> findSeam(int hp, int wp) {
-        return hash.computeIfAbsent(new Position(hp, wp), pos -> {
-            int h = pos.getFirst();
-            int w = pos.getSecond();
+    Pair<List<Position>, Integer> findSeam(int h, int w) {
+        return hash.computeIfAbsent(new Position(h, w), p -> {
 
-            ArrayList<Position> neighbors = getBelowNeighbors(h, w);
+                    int energy = computeEnergy(h, w);
+                    ArrayList<Position> below = getBelowNeighbors(h, w);
+                    if (below.isEmpty()) {
+                        return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), new Empty<>()),
+                                energy);
+                    } else {
+                        if (below.size() == 1) {
+                            Pair<List<Position>, Integer> s = findSeam(below.get(0).getFirst(), below.get(0).getFirst());
+                            return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s.getFirst()),
+                                    energy + s.getSecond());
+                        } else if (below.size() == 2) {
+                            Pair<List<Position>, Integer> s1 = findSeam(below.get(0).getFirst(), below.get(0).getSecond());
+                            Pair<List<Position>, Integer> s2 = findSeam(below.get(1).getFirst(), below.get(1).getSecond());
+                            if (s1.getSecond() <= s2.getSecond()) {
+                                return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s1.getFirst()),
+                                        energy + s1.getSecond());
+                            } else {
+                                return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s2.getFirst()),
+                                        energy + s2.getSecond());
+                            }
+                        } else if (below.size() == 3) {
+                            Pair<List<Position>, Integer> s1 = findSeam(below.get(0).getFirst(), below.get(0).getSecond());
+                            Pair<List<Position>, Integer> s2 = findSeam(below.get(1).getFirst(), below.get(1).getSecond());
+                            Pair<List<Position>, Integer> s3 = findSeam(below.get(2).getFirst(), below.get(2).getSecond());
 
-            int currentEnergy = computeEnergy(h, w);
-
-            if (neighbors.isEmpty()) {
-                return new Pair<>(List.singleton(new Position(h, w)), currentEnergy);
-            } else {
-                List<Position> bestPath = new Empty<>();
-                int bestCost = Integer.MAX_VALUE;
-
-                for (Position p : neighbors) {
-                    Pair<List<Position>, Integer> r = findSeam(p.getFirst(), p.getSecond());
-                    if (r.getSecond() < bestCost) {
-                        bestPath = r.getFirst();
-                        bestCost = r.getSecond();
+                            if (s1.getSecond() <= s2.getSecond()) {
+                                if (s1.getSecond() <= s3.getSecond()) {
+                                    return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s1.getFirst()),
+                                            energy + s1.getSecond());
+                                } else {
+                                    return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s3.getFirst()),
+                                            energy + s3.getSecond());
+                                }
+                            } else {
+                                if (s2.getSecond() <= s3.getSecond()) {
+                                    return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s2.getFirst()),
+                                            energy + s2.getSecond());
+                                } else {
+                                    return new Pair<List<Position>, Integer>(new Node<Position>(new Position(h, w), s3.getFirst()),
+                                            energy + s3.getSecond());
+                                }
+                            }
+                        }
                     }
-                }
-                bestPath = new Node<>(new Position(h, w), bestPath);
-                bestCost = currentEnergy + bestCost;
-                return new Pair<>(bestPath, bestCost);
-            }
-        });
+                    return null;
+                });
     }
+
+
 
     Pair<List<Position>, Integer> bestSeam() {
         hash.clear();

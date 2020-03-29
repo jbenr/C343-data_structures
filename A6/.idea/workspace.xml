@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bb31a78-bf94-4e9d-a916-e55a2f34b5a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tests/SeamCarvingTest2.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/SeamCarvingTest2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeamCarving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeamCarving.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,10 +16,11 @@
     <session id="-1973486840">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -36,19 +38,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="346" />
+          <entry key="java" value="369" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="346" />
+          <entry key="JAVA" value="369" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Position.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -60,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SeamCarving.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="177" column="17" lean-forward="true" selection-start-line="177" selection-start-column="17" selection-end-line="177" selection-end-column="17" />
+            <state relative-caret-position="39">
+              <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
               <folding>
                 <element signature="e#387#388#0" expanded="true" />
                 <element signature="e#416#417#0" expanded="true" />
@@ -82,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/List.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-709">
+            <state relative-caret-position="17">
               <caret line="50" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
@@ -91,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/SeamCarvingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3587">
-              <caret line="217" column="54" lean-forward="true" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
+            <state relative-caret-position="421">
+              <caret line="217" column="54" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -100,7 +102,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/SeamCarvingTest2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1046">
+            <state relative-caret-position="340">
               <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
             </state>
           </provider>
@@ -109,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/DPwithImageTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4165">
+            <state relative-caret-position="3978">
               <caret line="245" column="24" selection-start-line="245" selection-start-column="24" selection-end-line="245" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -159,9 +161,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/tests/SeamCarvingTest.java" />
-        <option value="$PROJECT_DIR$/src/SeamCarving.java" />
         <option value="$PROJECT_DIR$/tests/DPwithImageTest.java" />
         <option value="$PROJECT_DIR$/tests/SeamCarvingTest2.java" />
+        <option value="$PROJECT_DIR$/src/SeamCarving.java" />
       </list>
     </option>
   </component>
@@ -193,13 +195,18 @@
               <item name="A6" type="b2602c69:ProjectViewProjectNode" />
               <item name="A6" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="A6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="A6" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -211,8 +218,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582772413052" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582855266974" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../C343Spring2020/Labs/L7" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -239,7 +246,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SeamCarvingTest2">
+  <component name="RunManager" selected="JUnit.SeamCarvingTest.bestSeam">
     <configuration name="SeamCarvingTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A6" />
       <option name="PACKAGE_NAME" value="" />
@@ -297,11 +304,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SeamCarvingTest.bestSeam" />
         <item itemvalue="JUnit.SeamCarvingTest2" />
         <item itemvalue="JUnit.SeamCarvingTest2.cutMedium" />
         <item itemvalue="JUnit.SeamCarvingTest2.cutIterationTest" />
         <item itemvalue="JUnit.SeamCarvingTest.cutBigBalloonTWoThirds" />
-        <item itemvalue="JUnit.SeamCarvingTest.bestSeam" />
       </list>
     </recent_temporary>
   </component>
@@ -316,14 +323,12 @@
       <option name="presentableId" value="Default" />
       <updated>1582192579893</updated>
       <workItem from="1582584067920" duration="1178000" />
-      <workItem from="1582660209141" duration="7742000" />
+      <workItem from="1582660209141" duration="7938000" />
+      <workItem from="1582774230183" duration="1025000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SeamCarvingTest2 - 2020.02.25 at 15h 21m 45s.xml">
-      <configuration name="SeamCarvingTest2" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SeamCarvingTest_cutBigBalloonTWoThirds - 2020.02.25 at 15h 24m 44s.xml">
       <configuration name="SeamCarvingTest.cutBigBalloonTWoThirds" configurationId="JUnit" />
     </history-entry>
@@ -351,14 +356,18 @@
     <history-entry file="SeamCarvingTest2 - 2020.02.25 at 15h 59m 45s.xml">
       <configuration name="SeamCarvingTest2" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SeamCarvingTest_bestSeam - 2020.02.26 at 22h 35m 52s.xml">
+      <configuration name="SeamCarvingTest.bestSeam" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8920000" />
+    <option name="totallyTimeSpent" value="10141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2527331" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25594854" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -367,7 +376,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32974428" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -425,38 +434,27 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GraderUtil.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/List.java">
+    <entry file="file://$PROJECT_DIR$/small-axe.png" />
+    <entry file="file://$PROJECT_DIR$/src/Position.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-709">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#82#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/winter-sun-cut2.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/balloon-sky-cut.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/small-line.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/small-axe.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/SeamCarvingTest.java">
+    <entry file="file://$PROJECT_DIR$/tests/SeamCarvingTest2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3587">
-          <caret line="217" column="54" lean-forward="true" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
+        <state relative-caret-position="340">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/DPwithImageTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4165">
+        <state relative-caret-position="3978">
           <caret line="245" column="24" selection-start-line="245" selection-start-column="24" selection-end-line="245" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -464,10 +462,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/winter-sun-cut2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/small-line.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/balloon-sky-cut.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GraderUtil.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/SeamCarvingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="217" column="54" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SeamCarving.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="177" column="17" lean-forward="true" selection-start-line="177" selection-start-column="17" selection-end-line="177" selection-end-column="17" />
+        <state relative-caret-position="39">
+          <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
           <folding>
             <element signature="e#387#388#0" expanded="true" />
             <element signature="e#416#417#0" expanded="true" />
@@ -477,23 +501,6 @@
             <element signature="e#516#517#0" expanded="true" />
             <element signature="e#538#539#0" expanded="true" />
             <element signature="e#566#567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/SeamCarvingTest2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1046">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Position.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#82#83#0" expanded="true" />
           </folding>
         </state>
       </provider>

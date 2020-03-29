@@ -1,7 +1,8 @@
 //-----------------------------------------------------------------------
 // Empty AVL exception
 
-class EmptyAVLE extends Exception {}
+class EmptyAVLE extends Exception {
+}
 
 //-----------------------------------------------------------------------
 // Abstract AVL class
@@ -15,14 +16,17 @@ abstract class AVL implements TreePrinter.PrintableNode {
     static EmptyAVLE EAVLX = new EmptyAVLE();
 
     static AVL EAVL = new EmptyAVL();
-
     static AVL AVLLeaf(int elem) {
-        return null; // TODO
+        return new AVLNode(elem, EAVL, EAVL);
     }
 
     // Recursively copy the tree changing AVL nodes to BST nodes
-    static BST toBST (AVL avl) {
-        return null; // TODO
+    static BST toBST(AVL avl) {
+        try {
+            return new BSTNode(avl.AVLData(), toBST(avl.AVLLeft()), toBST(avl.AVLRight()));
+        } catch (EmptyAVLE emptyAVLE) {
+            return new EmptyBST();
+        }
     }
 
     //--------------------------
@@ -37,13 +41,13 @@ abstract class AVL implements TreePrinter.PrintableNode {
 
     abstract int AVLHeight();
 
-    abstract boolean isEmpty ();
+    abstract boolean isEmpty();
 
     //--------------------------
     // Main methods
     //--------------------------
 
-    abstract boolean AVLfind (int key);
+    abstract boolean AVLfind(int key);
 
     abstract AVL AVLinsert(int key);
 
@@ -84,13 +88,17 @@ class EmptyAVL extends AVL {
         return 0;
     }
 
-    boolean isEmpty () { return true; };
+    boolean isEmpty() {
+        return true;
+    }
+
+    ;
 
     //--------------------------
     // Main methods
     //--------------------------
 
-    boolean AVLfind (int key) {
+    boolean AVLfind(int key) {
         return false;
     }
 
@@ -126,7 +134,7 @@ class EmptyAVL extends AVL {
     // Override
     //--------------------------
 
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
         return (o instanceof EmptyAVL);
     }
 
@@ -154,7 +162,12 @@ class AVLNode extends AVL {
     private AVL left, right;
     private int height;
 
-     // constructor TODO
+    public AVLNode(int data, AVL left, AVL right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+        height = 1 + Math.max(left.AVLHeight(), right.AVLHeight());
+    }
 
     //--------------------------
     // Getters and simple methods
@@ -176,42 +189,173 @@ class AVLNode extends AVL {
         return height;
     }
 
-    boolean isEmpty () { return false; };
+    boolean isEmpty() {
+        return false;
+    }
+
+    ;
 
     //--------------------------
     // Main methods
     //--------------------------
 
+    /**
+     * @noinspection Duplicates
+     */
     boolean AVLfind(int key) {
-        return false; // TODO
+        boolean found = false;
+
+        if (key == this.data) {
+            found = true;
+        } else if (key < this.data) {
+            found = left.AVLfind(key);
+        } else {
+            found = right.AVLfind(key);
+        }
+        return found;
     }
 
     AVL AVLinsert(int key) {
-        return null; // TODO
+        AVL b;
+        if (key <= this.data) {
+            AVL newLeft = left.AVLinsert(key);
+            b = new AVLNode(data, newLeft, right);
+
+            if (right.AVLHeight()+1 < newLeft.AVLHeight()) {
+                b = b.AVLrotateRight();
+            }
+        } else {
+            AVL newRight = right.AVLinsert(key);
+            b = new AVLNode(data, left, newRight);
+            if (left.AVLHeight()+1 < newRight.AVLHeight() ) {
+                b = b.AVLrotateLeft();
+            }
+        }
+
+
+
+
+        return b;
     }
 
     AVL AVLeasyRight() {
-        return null; // TODO
+        try {
+            AVL newRoot = left;
+            AVL danglingMan = newRoot.AVLRight();
+
+            return new AVLNode(newRoot.AVLData(), newRoot.AVLLeft(),  new AVLNode(data, danglingMan,right));
+
+
+        } catch (EmptyAVLE e) {
+            throw new Error("Why are you rotating something that's empty?");
+        }
     }
 
+
     AVL AVLrotateRight() {
-        return null; // TODO
+        try {
+            AVL finalTree;
+            if (left.AVLLeft().AVLHeight() >= left.AVLRight().AVLHeight()) {
+                finalTree = this.AVLeasyRight();
+            } else {
+                AVL newLeft = left.AVLeasyLeft();
+                AVL midwayTree = new AVLNode(data, newLeft, right);
+                finalTree = midwayTree.AVLeasyRight();
+
+            }
+
+
+            return finalTree;
+        } catch (EmptyAVLE E) {
+            throw new Error ("Why are you rotating something that's empty?");
+        }
+
     }
 
     AVL AVLeasyLeft() {
-        return null; // TODO
+        try {
+            AVL newRoot = right;
+            AVL danglingMan = newRoot.AVLLeft();
+
+            return new AVLNode(newRoot.AVLData(), new AVLNode(data, left, danglingMan), newRoot.AVLRight());
+
+
+        } catch (EmptyAVLE e) {
+            throw new Error("Why are you rotating something that's empty?");
+        }
     }
 
     AVL AVLrotateLeft() {
-        return null; // TODO
+       try{
+           AVL finalTree;
+           if(right.AVLRight().AVLHeight() > right.AVLLeft().AVLHeight()){
+               finalTree = this.AVLeasyLeft();
+           }
+           else{
+               AVL newRight = right.AVLeasyRight();
+               AVL midwayTree = new AVLNode(data, left, newRight);
+               finalTree = midwayTree.AVLeasyLeft();
+
+           }
+
+           return finalTree;
+       }catch(EmptyAVLE e){
+           throw new Error("What are you doing rotating something empty?");
+       }
     }
 
     AVL AVLdelete(int key) throws EmptyAVLE {
-        return null; // TODO
+        AVL finalTree;
+        if (key < data){
+            AVL newLeft = left.AVLdelete(key);
+            finalTree = new AVLNode(data,newLeft, right);
+            if(newLeft.AVLHeight()+1 < right.AVLHeight()){
+                finalTree = finalTree.AVLrotateLeft();
+            }
+
+        }
+        else if(key>data){
+            AVL newRight = right.AVLinsert(key);
+            finalTree= new AVLNode(data,left,newRight);
+            if(newRight.AVLHeight()+1 < left.AVLHeight()){
+                finalTree = finalTree.AVLrotateRight();
+            }
+        }
+        else{
+            try {
+                Pair<Integer, AVL> largestElementOnLeftAndBalancedLeft = left.AVLshrink();
+                finalTree = new AVLNode(largestElementOnLeftAndBalancedLeft.getFirst(), largestElementOnLeftAndBalancedLeft.getSecond(), right);
+                if (largestElementOnLeftAndBalancedLeft.getSecond().AVLHeight() +1 < right.AVLHeight()) {
+                    finalTree= finalTree.AVLrotateLeft();
+                }
+
+            }catch(EmptyAVLE e){
+                //return right if "this" doesnt have a left
+                finalTree= right;
+            }
+        }
+
+
+
+        return finalTree;
+
     }
 
     Pair<Integer, AVL> AVLshrink() throws EmptyAVLE {
-        return null; // TODO
+       try{
+           Pair<Integer, AVL> rightMostChildAndTreeWithoutIt = right.AVLshrink();
+
+           AVL newLeft = new AVLNode(data, left, rightMostChildAndTreeWithoutIt.getSecond());
+
+           if(left.AVLHeight() > rightMostChildAndTreeWithoutIt.getSecond().AVLHeight()+1){
+               newLeft = newLeft.AVLrotateRight();
+           }
+           return new Pair<>(rightMostChildAndTreeWithoutIt.getFirst(), newLeft);
+
+       }catch(EmptyAVLE e){
+           return new Pair<Integer,AVL>(data, left);
+
+       }
     }
 
 
@@ -219,7 +363,7 @@ class AVLNode extends AVL {
     // Override
     //--------------------------
 
-    public boolean equals (Object o) {
+    public boolean equals(Object o) {
         if (o instanceof AVLNode) {
             AVLNode other = (AVLNode) o;
             return data == other.data && left.equals(other.left) && right.equals(other.right);
