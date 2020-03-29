@@ -1,6 +1,8 @@
 //-----------------------------------------------------------------------
 // Empty AVL exception
 
+import java.util.NoSuchElementException;
+
 class EmptyAVLE extends Exception {
 }
 
@@ -288,7 +290,7 @@ class AVLNode extends AVL {
     AVL AVLrotateLeft() {
        try{
            AVL finalTree;
-           if(right.AVLRight().AVLHeight() > right.AVLLeft().AVLHeight()){
+           if(right.AVLRight().AVLHeight() >= right.AVLLeft().AVLHeight()){
                finalTree = this.AVLeasyLeft();
            }
            else{

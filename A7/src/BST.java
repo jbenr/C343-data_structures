@@ -291,18 +291,20 @@ class TreeIterator implements Iterator<Integer>{
 
     @Override
     public Integer next() {
-        BST s = stack.pop();
-        int t= 0;
         try {
-            t = s.BSTData();
-            this.loadStack(s.BSTRight());
-        } catch (EmptyBSTE emptyBSTE) {
-            emptyBSTE.printStackTrace();
+            BST s = stack.pop();
+            int t = 0;
+            try {
+                t = s.BSTData();
+                this.loadStack(s.BSTRight());
+            } catch (EmptyBSTE emptyBSTE) {
+                emptyBSTE.printStackTrace();
+            }
+            return t;
+        } catch (EmptyStackException e){
+            throw new NoSuchElementException();
         }
 
-
-
-        return t;
     }
 
     private void loadStack(BST root){
