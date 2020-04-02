@@ -214,7 +214,32 @@ class AVLNode extends AVL {
         } else {
             temp = new AVLNode(data, left, right.AVLinsert(key));
         }
-        if(Math.abs(left.AVLHeight() - right.AVLHeight()) > 2){
+        if(Math.abs(left.AVLHeight() - right.AVLHeight()) > 2) {
+
+            if (key < data) {
+                try {
+                    if (left.AVLLeft().AVLHeight() > left.AVLRight().AVLHeight()) {
+
+                    }
+                } catch (EmptyAVLE emptyAVLE) {
+                    emptyAVLE.printStackTrace();
+                }
+            } else {
+                try {
+                    if (right.AVLRight().AVLHeight() > right.AVLLeft().AVLHeight()) {
+
+                    }
+                } catch (EmptyAVLE emptyAVLE) {
+                    emptyAVLE.printStackTrace();
+                }
+            }
+
+        } else {
+            return temp;
+        }
+        return temp;
+        /*
+        if(Math.abs(temp.AVLLeft().AVLHeight() - temp.AVLLeft().AVLHeight()) > 2){
             if(left.AVLHeight() > right.AVLHeight()){
                 try {
                     if(left.AVLLeft().AVLHeight() > left.AVLRight().AVLHeight()) {
@@ -242,6 +267,7 @@ class AVLNode extends AVL {
             temp = temp;
         }
         return temp;
+    }*/
     }
 
     AVL AVLeasyRight() {

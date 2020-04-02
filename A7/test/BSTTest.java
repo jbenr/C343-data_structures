@@ -9,18 +9,35 @@ import static org.junit.Assert.*;
 
 public class BSTTest {
     BST bst;
+    BST bst2;
+    BST bstLeft;
 
     @Before
     public void setUp() {
         List<Integer> nums = IntStream.range(0, 100).boxed().collect(Collectors.toList());
         Collections.shuffle(nums);
         bst = BST.EBST;
+        bst2 = BST.EBST;
+        bstLeft = BST.EBST;
         for (int i : nums) bst = bst.BSTinsert(i);
     }
 
     @Test
-    public void BSTNode() {
-        bst = BST.BSTNode(5, )
+    public void BSTNode() throws EmptyBSTE {
+        bst = new BSTNode(5, BST.BSTLeaf(10), BST.BSTLeaf(0)); //BSTNode
+        bst2 = new BSTNode(5,BST.BSTLeaf(0),new BSTNode(10,BST.BSTLeaf(7),BST.EBST));
+        bstLeft = new BSTNode(5, BST.EBST, BST.BSTLeaf(10));
+
+        assertTrue(bst.BSTHeight() == 2); //height constructor
+        assertTrue(bst.BSTfind(5)); //find
+        assertFalse(bst.BSTfind(3)); //**
+        assertEquals(bst2.BSTfind(7), bst.BSTinsert(7).BSTfind(7)); //insert
+        assertEquals(bst.BSTfind(7), bst2.BSTdelete(7).BSTfind(7)); //delete
+        assertEquals(bstLeft.BSTfind(0), bst.BSTdeleteLeftMostLeaf().getSecond().BSTfind(0)); //deleteLeftMostLeaf
+        assertEquals(bstLeft.BSTfind(0), bst.BSTdeleteLeftMostLeaf().getFirst() == 0); //**
+
+        assertTrue(bst.BSTinsert(10).BSTfind(10));
+
     }
 
     @Test

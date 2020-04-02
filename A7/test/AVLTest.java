@@ -26,6 +26,17 @@ public class AVLTest {
     }
 
     @Test
+    public void AVLinsert() {
+        avl = AVL.AVLLeaf(2);
+        avl = avl.AVLinsert(1);
+        avl = avl.AVLinsert(3);
+        assertTrue(avl.AVLfind(3)); //find
+        avl = avl.AVLinsert(5);
+        avl = avl.AVLinsert(7);
+        assertTrue(avl.AVLHeight() == 4);
+    }
+
+    @Test
     public void toAVL() {
         BST bst2 = AVL.toBST(BST.toAVL(bst));
         Iterator<Integer> bstIter = bst.iterator();
