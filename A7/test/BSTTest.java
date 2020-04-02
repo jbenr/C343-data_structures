@@ -19,6 +19,11 @@ public class BSTTest {
     }
 
     @Test
+    public void BSTNode() {
+        bst = BST.BSTNode(5, )
+    }
+
+    @Test
     public void BSTLeaf () throws EmptyBSTE {
         bst = BST.BSTLeaf(3);
         assertEquals(3,bst.BSTData());
