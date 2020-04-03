@@ -1,6 +1,11 @@
 //-----------------------------------------------------------------------
 // Empty AVL exception
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 class EmptyAVLE extends Exception {}
 
 //-----------------------------------------------------------------------
@@ -22,14 +27,15 @@ abstract class AVL implements TreePrinter.PrintableNode {
 
     // Recursively copy the tree changing AVL nodes to BST nodes
     static BST toBST(AVL avl) {
-        /*List<Integer> ordered = null;
-        ordered = OrderAVL.breadth(avl);
+        List<Integer> lst = null;
+
+        
+
         BST bst = new EmptyBST();
-        for (Integer integer : ordered) {
-            bst = bst.BSTinsert(integer);
+        for (Integer i : lst) {
+            bst = bst.BSTinsert(i);
         }
-        return bst;*/
-        return null;
+        return bst;
     }
 
     //--------------------------
@@ -200,8 +206,6 @@ class AVLNode extends AVL {
         return false;
     }
 
-    ;
-
     //--------------------------
     // Main methods
     //--------------------------
@@ -251,132 +255,55 @@ class AVLNode extends AVL {
 
     AVL AVLeasyRight() {
         try {
-            return new AVLNode(left.AVLData(), left.AVLLeft(), new AVLNode(data, left.AVLRight(), right));
-        } catch (EmptyAVLE emptyAVLE) {
-            return new AVLNode(data, left, right);
-        }
+            AVL modifiedRight = new AVLNode(this.data, this.left.AVLRight(), this.right);
+            return new AVLNode(this.left.AVLData(), this.left.AVLLeft(), modifiedRight);
+        } catch (EmptyAVLE e) { return EAVL; }
     }
 
     AVL AVLrotateRight() {
-        AVL tis;
-        tis = new AVLNode(data, left.AVLeasyLeft(), right);
-        return tis.AVLeasyRight();
+        try {
+
+            if (this.left.AVLLeft().AVLHeight() >= this.left.AVLRight().AVLHeight()) {
+                return this.AVLeasyRight();
+            } else {
+
+                AVL leftChildRotated = this.left.AVLeasyLeft();
+
+                return new AVLNode(
+                        leftChildRotated.AVLData(),
+                        leftChildRotated.AVLLeft(),
+                        new AVLNode(
+                                this.data,
+                                leftChildRotated.AVLRight(),
+                                this.right));
+            }
+        }
+        catch (EmptyAVLE e) { return EAVL; }
     }
 
     AVL AVLeasyLeft() {
         try {
-            return new AVLNode(right.AVLData(), new AVLNode(data, left, right.AVLLeft()), right.AVLRight());
-        } catch (EmptyAVLE emptyAVLE) {
-            return new AVLNode(data, left, right);
-        }
+            AVL modifiedLeft = new AVLNode(this.data, this.left, this.right.AVLLeft());
+            return new AVLNode(this.right.AVLData(), modifiedLeft, this.right.AVLRight());
+        } catch (EmptyAVLE e) { return EAVL; }
     }
 
     AVL AVLrotateLeft() {
-        AVL tis;
-        tis = new AVLNode(data, left, right.AVLeasyRight());
-        return tis.AVLeasyLeft();
-    }
-/*
-    AVL AVLdelete(int key) throws EmptyAVLE {if (this.data == key) {
-        // key matches root
-
-        if ((this.data == key) && (this.height == 1)) { return EAVL;
-        } else {
-            Pair<Integer, AVL> substitute = null;
-            AVL newTree = null;
-            if (this.left.isEmpty()) {
-                substitute = new Pair<>(this.right.AVLData(), EAVL);
-                newTree = new AVLNode(substitute.getFirst(), EAVL, substitute.getSecond());
+        try {
+            if (this.right.AVLRight().AVLHeight() >= this.right.AVLLeft().AVLHeight()) {
+                return this.AVLeasyLeft();
             } else {
-                substitute = this.left.AVLshrink();
-                newTree = new AVLNode(substitute.getFirst(), substitute.getSecond(), right); }
-            if (Math.abs(newTree.AVLLeft().AVLHeight() - newTree.AVLRight().AVLHeight()) > 1) {
-                if (newTree.AVLLeft().AVLHeight() < newTree.AVLRight().AVLHeight()) {
-                    return newTree.AVLrotateLeft();
-                } else { return newTree.AVLeasyRight(); }
-            } else { return newTree;}
-        }
-    } else if (key < this.data) {
-        AVL deletedLeft = this.left.AVLdelete(key);
-        if (Math.abs(deletedLeft.AVLHeight() - right.AVLHeight()) > 1) {
-            return new AVLNode(this.data, deletedLeft, right).AVLrotateLeft();
-        } else { return new AVLNode(this.data, deletedLeft, right); }
-
-    } else { AVL deletedRight = this.right.AVLdelete(key);
-        if (Math.abs(deletedRight.AVLHeight() - left.AVLHeight()) > 1) {
-            return new AVLNode(this.data, left, deletedRight).AVLrotateRight();
-        } else { return new AVLNode(this.data, left, deletedRight); }
+                AVL rightChildRotated = this.right.AVLeasyRight();
+                return new AVLNode(
+                        rightChildRotated.AVLData(),
+                        new AVLNode(
+                                this.data,
+                                this.left,
+                                rightChildRotated.AVLLeft()),
+                        rightChildRotated.AVLRight());
+            }
+        } catch (EmptyAVLE e) { return new EmptyAVL(); }
     }
-        AVL tis = new AVLNode(data, left, right);
-        Pair<Integer, AVL> shrink;
-
-        if (key < tis.AVLData()) {
-            return new AVLNode(tis.AVLData(), tis.AVLLeft().AVLdelete(key), tis.AVLRight());
-        } else if (key > tis.AVLData()) {
-            return new AVLNode(tis.AVLData(), tis.AVLLeft(), tis.AVLRight().AVLdelete(key));
-        } else {
-            shrink = tis.AVLshrink();
-            if(key < data){
-                return new AVLNode(shrink.getFirst(), shrink.getSecond(), right);
-            } else {
-                return new AVLNode(shrink.getFirst(), left, shrink.getSecond());
-            }
-        }
-
-    }
-
-    Pair<Integer, AVL> AVLshrink() throws EmptyAVLE {
-        /*Integer result = 0;
-        AVL tis = new AVLNode(data, left, right);
-        if(left.AVLHeight() > right.AVLHeight()){
-            AVL temp = left;
-            while(!temp.AVLRight().isEmpty()){
-                result = temp.AVLRight().AVLData();
-                temp = temp.AVLRight();
-            }
-        } else {
-            AVL temp = right;
-            while(!temp.AVLLeft().isEmpty()){
-                result = temp.AVLLeft().AVLData();
-                temp = temp.AVLLeft();
-            }
-        }
-
-        return new Pair<Integer, AVL>(result, tis);
-        if (this.height == 1) {
-            // base case
-            return new Pair<>(this.data, EAVL);
-        } else if (this.right.isEmpty()) {
-            // base case
-
-            // determine how to return from a base case (is left empty?)
-            if (this.left.isEmpty()) {
-                return new Pair<>(this.data, EAVL);
-            } else {
-                return new Pair<>(this.data, this.left);
-            }
-        } else {
-            Pair<Integer, AVL> temp = this.right.AVLshrink();
-            AVL postDeletion = new AVLNode(this.data, left, temp.getSecond());
-
-            if (Math.abs(postDeletion.AVLLeft().AVLHeight() - postDeletion.AVLRight().AVLHeight()) > 1) {
-                // unbalanced
-                if (postDeletion.AVLLeft().AVLHeight() < postDeletion.AVLRight().AVLHeight()) {
-                    // left is much smaller
-                    AVL balanced = postDeletion.AVLrotateLeft();
-                    return new Pair<>(temp.getFirst(), balanced);
-                } else {
-                    // right is much smaller
-                    AVL balanced = postDeletion.AVLrotateRight();
-                    return new Pair<>(temp.getFirst(), balanced);
-                }
-            } else {
-                // balanced
-                return new Pair<>(temp.getFirst(), new AVLNode(this.data, left, temp.getSecond()));
-            }
-        }
-    }
-    */
 
     AVL AVLdelete(int key) throws EmptyAVLE {
         if (this.data == key) {
@@ -445,6 +372,7 @@ class AVLNode extends AVL {
             }
         }
     }
+
 
     //--------------------------
     // Override

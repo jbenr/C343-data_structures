@@ -99,7 +99,6 @@ public class AVLTest {
 
     @Test
     public void AVLrotateRight() throws EmptyAVLE {
-
         avl = AVL.EAVL;
         avl = avl.AVLinsert(40);
         TreePrinter.print(avl);
@@ -163,8 +162,8 @@ public class AVLTest {
         AVL left = avl2.AVLLeft();
         AVL right = avl2.AVLRight();
         assertEquals(30, avl2.AVLData());
-        //assertEquals(7,left.AVLData());
-        //assertEquals(5, left.AVLLeft().AVLData());
+        assertEquals(7,left.AVLData());
+        assertEquals(5, left.AVLLeft().AVLData());
         assertEquals(20, left.AVLRight().AVLData());
         assertEquals(10, left.AVLRight().AVLLeft().AVLData());
         assertEquals(40,right.AVLData());
