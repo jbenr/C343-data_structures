@@ -21,8 +21,15 @@ abstract class AVL implements TreePrinter.PrintableNode {
     }
 
     // Recursively copy the tree changing AVL nodes to BST nodes
-    static BST toBST (AVL avl) {
-        return null; // TODO
+    static BST toBST(AVL avl) {
+        /*List<Integer> ordered = null;
+        ordered = OrderAVL.breadth(avl);
+        BST bst = new EmptyBST();
+        for (Integer integer : ordered) {
+            bst = bst.BSTinsert(integer);
+        }
+        return bst;*/
+        return null;
     }
 
     //--------------------------
@@ -269,8 +276,37 @@ class AVLNode extends AVL {
         tis = new AVLNode(data, left, right.AVLeasyRight());
         return tis.AVLeasyLeft();
     }
+/*
+    AVL AVLdelete(int key) throws EmptyAVLE {if (this.data == key) {
+        // key matches root
 
-    AVL AVLdelete(int key) throws EmptyAVLE {
+        if ((this.data == key) && (this.height == 1)) { return EAVL;
+        } else {
+            Pair<Integer, AVL> substitute = null;
+            AVL newTree = null;
+            if (this.left.isEmpty()) {
+                substitute = new Pair<>(this.right.AVLData(), EAVL);
+                newTree = new AVLNode(substitute.getFirst(), EAVL, substitute.getSecond());
+            } else {
+                substitute = this.left.AVLshrink();
+                newTree = new AVLNode(substitute.getFirst(), substitute.getSecond(), right); }
+            if (Math.abs(newTree.AVLLeft().AVLHeight() - newTree.AVLRight().AVLHeight()) > 1) {
+                if (newTree.AVLLeft().AVLHeight() < newTree.AVLRight().AVLHeight()) {
+                    return newTree.AVLrotateLeft();
+                } else { return newTree.AVLeasyRight(); }
+            } else { return newTree;}
+        }
+    } else if (key < this.data) {
+        AVL deletedLeft = this.left.AVLdelete(key);
+        if (Math.abs(deletedLeft.AVLHeight() - right.AVLHeight()) > 1) {
+            return new AVLNode(this.data, deletedLeft, right).AVLrotateLeft();
+        } else { return new AVLNode(this.data, deletedLeft, right); }
+
+    } else { AVL deletedRight = this.right.AVLdelete(key);
+        if (Math.abs(deletedRight.AVLHeight() - left.AVLHeight()) > 1) {
+            return new AVLNode(this.data, left, deletedRight).AVLrotateRight();
+        } else { return new AVLNode(this.data, left, deletedRight); }
+    }
         AVL tis = new AVLNode(data, left, right);
         Pair<Integer, AVL> shrink;
 
@@ -286,6 +322,7 @@ class AVLNode extends AVL {
                 return new AVLNode(shrink.getFirst(), left, shrink.getSecond());
             }
         }
+
     }
 
     Pair<Integer, AVL> AVLshrink() throws EmptyAVLE {
@@ -305,7 +342,7 @@ class AVLNode extends AVL {
             }
         }
 
-        return new Pair<Integer, AVL>(result, tis);*/
+        return new Pair<Integer, AVL>(result, tis);
         if (this.height == 1) {
             // base case
             return new Pair<>(this.data, EAVL);
@@ -339,7 +376,75 @@ class AVLNode extends AVL {
             }
         }
     }
+    */
 
+    AVL AVLdelete(int key) throws EmptyAVLE {
+        if (this.data == key) {
+            if ((this.data == key) && (this.height == 1)) {
+                return EAVL;
+            } else {
+                Pair<Integer, AVL> substitute = null;
+                AVL newTree = null;
+                if (this.left.isEmpty()) {
+                    substitute = new Pair<>(this.right.AVLData(), EAVL);
+                    newTree = new AVLNode(substitute.getFirst(), EAVL, substitute.getSecond());
+                } else {
+                    substitute = this.left.AVLshrink();
+                    newTree = new AVLNode(substitute.getFirst(), substitute.getSecond(), right);
+                }
+                if (Math.abs(newTree.AVLLeft().AVLHeight() - newTree.AVLRight().AVLHeight()) > 1) {
+                    if (newTree.AVLLeft().AVLHeight() < newTree.AVLRight().AVLHeight()) {
+                        return newTree.AVLrotateLeft();
+                    } else {
+                        return newTree.AVLeasyRight();
+                    }
+                } else {
+                    return newTree;
+                }
+            }
+        } else if (key < this.data) {
+            AVL deletedLeft = this.left.AVLdelete(key);
+            if (Math.abs(deletedLeft.AVLHeight() - right.AVLHeight()) > 1) {
+                return new AVLNode(this.data, deletedLeft, right).AVLrotateLeft();
+            } else {
+                return new AVLNode(this.data, deletedLeft, right);
+            }
+        } else {
+            AVL deletedRight = this.right.AVLdelete(key);
+            if (Math.abs(deletedRight.AVLHeight() - left.AVLHeight()) > 1) {
+                return new AVLNode(this.data, left, deletedRight).AVLrotateRight();
+            } else {
+                return new AVLNode(this.data, left, deletedRight);
+            }
+        }
+    }
+
+    Pair<Integer, AVL> AVLshrink() throws EmptyAVLE {
+        if (this.height == 1) {
+            return new Pair<>(this.data, EAVL);
+        } else if (this.right.isEmpty()) {
+            if (this.left.isEmpty()) {
+                return new Pair<>(this.data, EAVL);
+            } else {
+                return new Pair<>(this.data, this.left);
+            }
+        } else {
+            Pair<Integer, AVL> temp = this.right.AVLshrink();
+            AVL postDeletion = new AVLNode(this.data, left, temp.getSecond());
+
+            if (Math.abs(postDeletion.AVLLeft().AVLHeight() - postDeletion.AVLRight().AVLHeight()) > 1) {
+                if (postDeletion.AVLLeft().AVLHeight() < postDeletion.AVLRight().AVLHeight()) {
+                    AVL balanced = postDeletion.AVLrotateLeft();
+                    return new Pair<>(temp.getFirst(), balanced);
+                } else {
+                    AVL balanced = postDeletion.AVLrotateRight();
+                    return new Pair<>(temp.getFirst(), balanced);
+                }
+            } else {
+                return new Pair<>(temp.getFirst(), new AVLNode(this.data, left, temp.getSecond()));
+            }
+        }
+    }
 
     //--------------------------
     // Override
