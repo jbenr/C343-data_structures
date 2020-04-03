@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/../A2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AVL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BST.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +125,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583631198573</updated>
       <workItem from="1585769157199" duration="15856000" />
-      <workItem from="1585862925901" duration="18062000" />
+      <workItem from="1585862925901" duration="18316000" />
     </task>
     <servers />
   </component>

@@ -27,7 +27,7 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
 
     // Use the iterator (that you need to define below) to get the BST nodes
     // one-by-one and insert them into the resulting AVL tree.
-    static AVL toAVL (BST bst) throws EmptyBSTE {
+    static AVL toAVL (BST bst) throws EmptyBSTE, EmptyAVLE {
         ArrayList<Integer> lst = new ArrayList<>();
         while(!bst.isEmpty()){
             int temp = bst.BSTData();
