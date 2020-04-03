@@ -289,7 +289,7 @@ class AVLNode extends AVL {
     }
 
     Pair<Integer, AVL> AVLshrink() throws EmptyAVLE {
-        Integer result = 0;
+        /*Integer result = 0;
         AVL tis = new AVLNode(data, left, right);
         if(left.AVLHeight() > right.AVLHeight()){
             AVL temp = left;
@@ -305,7 +305,39 @@ class AVLNode extends AVL {
             }
         }
 
-        return new Pair<Integer, AVL>(result, tis);
+        return new Pair<Integer, AVL>(result, tis);*/
+        if (this.height == 1) {
+            // base case
+            return new Pair<>(this.data, EAVL);
+        } else if (this.right.isEmpty()) {
+            // base case
+
+            // determine how to return from a base case (is left empty?)
+            if (this.left.isEmpty()) {
+                return new Pair<>(this.data, EAVL);
+            } else {
+                return new Pair<>(this.data, this.left);
+            }
+        } else {
+            Pair<Integer, AVL> temp = this.right.AVLshrink();
+            AVL postDeletion = new AVLNode(this.data, left, temp.getSecond());
+
+            if (Math.abs(postDeletion.AVLLeft().AVLHeight() - postDeletion.AVLRight().AVLHeight()) > 1) {
+                // unbalanced
+                if (postDeletion.AVLLeft().AVLHeight() < postDeletion.AVLRight().AVLHeight()) {
+                    // left is much smaller
+                    AVL balanced = postDeletion.AVLrotateLeft();
+                    return new Pair<>(temp.getFirst(), balanced);
+                } else {
+                    // right is much smaller
+                    AVL balanced = postDeletion.AVLrotateRight();
+                    return new Pair<>(temp.getFirst(), balanced);
+                }
+            } else {
+                // balanced
+                return new Pair<>(temp.getFirst(), new AVLNode(this.data, left, temp.getSecond()));
+            }
+        }
     }
 
 

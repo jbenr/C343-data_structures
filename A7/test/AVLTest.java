@@ -33,7 +33,7 @@ public class AVLTest {
         assertTrue(avl.AVLfind(3)); //find
         avl = avl.AVLinsert(5);
         avl = avl.AVLinsert(7);
-        assertTrue(avl.AVLHeight() == 4);
+        assertTrue(avl.AVLHeight() == 3);
     }
 
     @Test
