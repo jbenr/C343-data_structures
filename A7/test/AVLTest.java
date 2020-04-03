@@ -48,16 +48,28 @@ public class AVLTest {
 
     @Test
     public void AVLeasyRight() throws EmptyAVLE {
+        avl = new AVLNode(40, new AVLNode(20, new AVLNode(10, AVL.EAVL, AVL.AVLLeaf(15)), AVL.AVLLeaf(30)), AVL.AVLLeaf(50));
+        assertTrue(avl.AVLeasyRight().AVLHeight() < avl.AVLHeight());
+
         avl = AVL.EAVL;
         avl = avl.AVLinsert(40);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(50);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(20);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(10);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(30);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(15);
+        TreePrinter.print(avl);
 
         AVL left = avl.AVLLeft();
         AVL right = avl.AVLRight();
+
+        assertTrue(Math.abs(left.AVLHeight() - right.AVLHeight()) <= 1);
+
         assertEquals(20, avl.AVLData());
         assertEquals(10,left.AVLData());
         assertEquals(15, left.AVLRight().AVLData());
@@ -67,14 +79,41 @@ public class AVLTest {
     }
 
     @Test
-    public void AVLrotateRight() throws EmptyAVLE {
+    public void AVLeasyLeft() throws EmptyAVLE {
         avl = AVL.EAVL;
         avl = avl.AVLinsert(40);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(50);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(20);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(45);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(60);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(59);
+        TreePrinter.print(avl);
+
+        assertTrue(Math.abs(avl.AVLLeft().AVLHeight() - avl.AVLRight().AVLHeight()) < 2);
+    }
+
+    @Test
+    public void AVLrotateRight() throws EmptyAVLE {
+
+        avl = AVL.EAVL;
+        avl = avl.AVLinsert(40);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(50);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(20);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(10);
+        TreePrinter.print(avl);
         avl = avl.AVLinsert(30);
+        TreePrinter.print(avl);
+        TreePrinter.print(avl.AVLrotateRight());
         avl = avl.AVLinsert(25);
+        TreePrinter.print(avl);
 
         AVL left = avl.AVLLeft();
         AVL right = avl.AVLRight();
@@ -84,6 +123,26 @@ public class AVLTest {
         assertEquals(25, left.AVLRight().AVLData());
         assertEquals(40,right.AVLData());
         assertEquals(50, right.AVLRight().AVLData());
+    }
+
+    @Test
+    public void AVLrotateLeft() throws EmptyAVLE {
+
+        avl = AVL.EAVL;
+        avl = avl.AVLinsert(40);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(50);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(20);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(45);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(60);
+        TreePrinter.print(avl);
+        avl = avl.AVLinsert(46);
+        TreePrinter.print(avl);
+
+        assertTrue(Math.abs(avl.AVLLeft().AVLHeight() - avl.AVLRight().AVLHeight()) < 2);
     }
 
     @Test
