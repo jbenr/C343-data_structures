@@ -271,11 +271,41 @@ class AVLNode extends AVL {
     }
 
     AVL AVLdelete(int key) throws EmptyAVLE {
-        return null;
+        AVL tis = new AVLNode(data, left, right);
+        Pair<Integer, AVL> shrink;
+
+        if (key < tis.AVLData()) {
+            return new AVLNode(tis.AVLData(), tis.AVLLeft().AVLdelete(key), tis.AVLRight());
+        } else if (key > tis.AVLData()) {
+            return new AVLNode(tis.AVLData(), tis.AVLLeft(), tis.AVLRight().AVLdelete(key));
+        } else {
+            shrink = tis.AVLshrink();
+            if(key < data){
+                return new AVLNode(shrink.getFirst(), shrink.getSecond(), right);
+            } else {
+                return new AVLNode(shrink.getFirst(), left, shrink.getSecond());
+            }
+        }
     }
 
     Pair<Integer, AVL> AVLshrink() throws EmptyAVLE {
-        return null; // TODO
+        Integer result = 0;
+        AVL tis = new AVLNode(data, left, right);
+        if(left.AVLHeight() > right.AVLHeight()){
+            AVL temp = left;
+            while(!temp.AVLRight().isEmpty()){
+                result = temp.AVLRight().AVLData();
+                temp = temp.AVLRight();
+            }
+        } else {
+            AVL temp = right;
+            while(!temp.AVLLeft().isEmpty()){
+                result = temp.AVLLeft().AVLData();
+                temp = temp.AVLLeft();
+            }
+        }
+
+        return new Pair<Integer, AVL>(result, tis);
     }
 
 

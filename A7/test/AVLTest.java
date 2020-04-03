@@ -156,8 +156,10 @@ public class AVLTest {
         avl = avl.AVLinsert(50);
         avl = avl.AVLinsert(5);
         avl = avl.AVLinsert(10);
+        TreePrinter.print(avl);
 
         AVL avl2 = avl.AVLdelete(35);
+        TreePrinter.print(avl2);
         AVL left = avl2.AVLLeft();
         AVL right = avl2.AVLRight();
         assertEquals(30, avl2.AVLData());
