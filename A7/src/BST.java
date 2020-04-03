@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -26,8 +27,19 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
 
     // Use the iterator (that you need to define below) to get the BST nodes
     // one-by-one and insert them into the resulting AVL tree.
-    static AVL toAVL (BST bst) {
-        return null; // TODO
+    static AVL toAVL (BST bst) throws EmptyBSTE {
+        ArrayList<Integer> lst = new ArrayList<>();
+        while(!bst.isEmpty()){
+            int temp = bst.BSTData();
+            lst.add(temp);
+            bst = bst.BSTdelete(temp);
+        }
+
+        AVL avl = new EmptyAVL();
+        for (Integer i : lst) {
+            avl = avl.AVLinsert(i);
+        }
+        return avl;
     }
 
     //--------------------------

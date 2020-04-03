@@ -26,10 +26,13 @@ abstract class AVL implements TreePrinter.PrintableNode {
     }
 
     // Recursively copy the tree changing AVL nodes to BST nodes
-    static BST toBST(AVL avl) {
-        List<Integer> lst = null;
-
-        
+    static BST toBST(AVL avl) throws EmptyAVLE {
+        ArrayList<Integer> lst = new ArrayList<>();
+        while(!avl.isEmpty()){
+            int temp = avl.AVLData();
+            lst.add(temp);
+            avl = avl.AVLdelete(temp);
+        }
 
         BST bst = new EmptyBST();
         for (Integer i : lst) {

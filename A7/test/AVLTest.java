@@ -1,3 +1,4 @@
+import com.sun.source.tree.Tree;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,11 +34,17 @@ public class AVLTest {
         assertTrue(avl.AVLfind(3)); //find
         avl = avl.AVLinsert(5);
         avl = avl.AVLinsert(7);
-        assertTrue(avl.AVLHeight() == 3);
+        assertEquals(3, avl.AVLHeight());
     }
 
     @Test
-    public void toAVL() {
+    public void toAVL() throws EmptyAVLE, EmptyBSTE {
+
+        bst = new BSTNode(1, BST.EBST, new BSTNode(2, BST.EBST, BST.BSTLeaf(3)));
+        TreePrinter.print(bst);
+        AVL avl = BST.toAVL(bst);
+        TreePrinter.print(avl);
+
         BST bst2 = AVL.toBST(BST.toAVL(bst));
         Iterator<Integer> bstIter = bst.iterator();
         Iterator<Integer> bst2Iter = bst2.iterator();
