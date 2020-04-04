@@ -123,7 +123,7 @@ class EmptyBST extends BST {
     }
 
     // convert min tree to max tree
-    BST flip () { return null; }
+    BST flip () { return EBST; }
 
     //--------------------------
     // Printable interface
