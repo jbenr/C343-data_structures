@@ -29,8 +29,9 @@ public class BSTTest {
 
         for (int i=0; i<12; i++) assertEquals(i,bst.kth(i+1)); // I changed the test to bst.kth(i+1) instead of just
         // bst.kth(i) because the bst above's 1st element is 0, not 1. So 0 == bst.kth(1), 1 != bst.kth(1).
+
         BST flipped = bst.flip();
         TreePrinter.print(flipped);
-        for (int i=0; i<12;i++) assertEquals(11-i,flipped.kth(i));*/
+        for (int i=0; i<12;i++) assertEquals(11-i,flipped.kth(i+1));
     }
 }

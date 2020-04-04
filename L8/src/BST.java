@@ -51,7 +51,7 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
     abstract Pair<Integer, BST> BSTdeleteLeftMostLeaf() throws EmptyBSTE;
 
     // convert min tree to max tree
-    abstract BST flip ();
+    abstract BST flip () throws EmptyBSTE;
 
     // returns the kth element of the tree
     int kth (int k) throws EmptyBSTE {
@@ -233,8 +233,20 @@ class BSTNode extends BST {
     }
 
     // convert min tree to max tree
-    BST flip () {
-        return null;
+    BST flip () throws EmptyBSTE {
+        BST result = this;
+        BST tempR = result.BSTRight();
+        BST tempL = result.BSTLeft();
+        result = new BSTNode(result.BSTData(), tempR, tempL);
+
+        if (result.BSTLeft() != EBST) {
+            result = new BSTNode(result.BSTData(),result.BSTLeft().flip(), result.BSTRight());
+        }
+
+        if (result.BSTRight() != EBST) {
+            result = new BSTNode(result.BSTData(),result.BSTLeft(), result.BSTRight().flip());
+        }
+        return result;
     }
 
     //--------------------------
