@@ -2,8 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e27fd3e-164b-4479-9fc4-a409faffcd0e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../A9/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/A9.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/src/BinaryHeap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/src/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/src/TreePrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A9/test/HeapTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/.idea/libraries/junit_junit_4_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/L8.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/src/BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/src/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/src/TreePrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../L8/tests/BSTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AVL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/AVLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/AVLTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BST.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,10 +38,12 @@
     <session id="2124966928">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -39,27 +60,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4902" />
+          <entry key="java" value="5027" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4902" />
+          <entry key="JAVA" value="5027" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BST.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="307" column="5" lean-forward="true" selection-start-line="307" selection-start-column="5" selection-end-line="307" selection-end-column="5" />
-              <folding>
-                <element signature="e#5980#5981#0" expanded="true" />
-                <element signature="e#6033#6034#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="455">
+              <caret line="259" column="32" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -67,52 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AVL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="337" selection-start-line="337" selection-end-line="337" />
-              <folding>
-                <element signature="e#511#512#0" expanded="true" />
-                <element signature="e#563#564#0" expanded="true" />
-                <element signature="e#2010#2011#0" expanded="true" />
-                <element signature="e#2034#2035#0" expanded="true" />
-                <element signature="e#2059#2060#0" expanded="true" />
-                <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2212#2213#0" expanded="true" />
-                <element signature="e#2240#2241#0" expanded="true" />
-                <element signature="e#2270#2271#0" expanded="true" />
-                <element signature="e#2305#2306#0" expanded="true" />
-                <element signature="e#2331#2332#0" expanded="true" />
-                <element signature="e#2421#2422#0" expanded="true" />
-                <element signature="e#2449#2450#0" expanded="true" />
-                <element signature="e#2541#2542#0" expanded="true" />
-                <element signature="e#2566#2567#0" expanded="true" />
-                <element signature="e#2655#2656#0" expanded="true" />
-                <element signature="e#2682#2683#0" expanded="true" />
-                <element signature="e#2773#2774#0" expanded="true" />
-                <element signature="e#3051#3052#0" expanded="true" />
-                <element signature="e#3097#3098#0" expanded="true" />
-                <element signature="e#3241#3242#0" expanded="true" />
-                <element signature="e#3268#3269#0" expanded="true" />
-                <element signature="e#3319#3320#0" expanded="true" />
-                <element signature="e#3346#3347#0" expanded="true" />
-                <element signature="e#3377#3378#0" expanded="true" />
-                <element signature="e#3402#3403#0" expanded="true" />
-                <element signature="e#3912#3913#0" expanded="true" />
-                <element signature="e#3939#3940#0" expanded="true" />
-                <element signature="e#3960#3961#0" expanded="true" />
-                <element signature="e#3987#3988#0" expanded="true" />
-                <element signature="e#4009#4010#0" expanded="true" />
-                <element signature="e#4037#4038#0" expanded="true" />
-                <element signature="e#4060#4061#0" expanded="true" />
-                <element signature="e#4089#4090#0" expanded="true" />
-                <element signature="e#4114#4115#0" expanded="true" />
-                <element signature="e#4142#4143#0" expanded="true" />
-                <element signature="e#9446#9447#0" expanded="true" />
-                <element signature="e#9497#9498#0" expanded="true" />
-                <element signature="e#9548#9549#0" expanded="true" />
-                <element signature="e#9601#9602#0" expanded="true" />
-                <element signature="e#9632#9633#0" expanded="true" />
-                <element signature="e#9675#9676#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1071">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
             </state>
           </provider>
         </entry>
@@ -120,20 +93,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/BSTTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
+            <state relative-caret-position="3451">
               <caret line="210" selection-start-line="210" selection-end-line="210" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/AVLTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="103" column="38" lean-forward="true" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
-              <folding>
-                <element signature="e#3265#3274#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2057">
+              <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -152,9 +122,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test/BSTTest.java" />
-        <option value="$PROJECT_DIR$/src/BST.java" />
-        <option value="$PROJECT_DIR$/src/AVL.java" />
         <option value="$PROJECT_DIR$/test/AVLTest.java" />
+        <option value="$PROJECT_DIR$/src/AVL.java" />
+        <option value="$PROJECT_DIR$/src/BST.java" />
       </list>
     </option>
   </component>
@@ -168,8 +138,8 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="294" />
-    <option name="y" value="120" />
+    <option name="x" value="136" />
+    <option name="y" value="210" />
     <option name="width" value="2614" />
     <option name="height" value="1340" />
   </component>
@@ -180,6 +150,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,7 +178,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -225,8 +195,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585516577220" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585847983862" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../A9" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -323,23 +293,14 @@
       <option name="presentableId" value="Default" />
       <updated>1583631198573</updated>
       <workItem from="1584901401919" duration="21507000" />
-      <workItem from="1585513260360" duration="3207000" />
+      <workItem from="1585513260360" duration="3426000" />
+      <workItem from="1585595692764" duration="8145000" />
+      <workItem from="1585847294773" duration="1287000" />
+      <workItem from="1586566962724" duration="17000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AVLTest - 2020.03.29 at 16h 34m 19s.xml">
-      <configuration name="AVLTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AVLTest - 2020.03.29 at 16h 34m 23s.xml">
-      <configuration name="AVLTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BSTTest_BSTiteratorTest - 2020.03.29 at 16h 43m 02s.xml">
-      <configuration name="BSTTest.BSTiteratorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BSTTest_BSTiteratorTest - 2020.03.29 at 16h 46m 15s.xml">
-      <configuration name="BSTTest.BSTiteratorTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BSTTest_BSTiteratorTest - 2020.03.29 at 16h 46m 47s.xml">
       <configuration name="BSTTest.BSTiteratorTest" configurationId="JUnit" />
     </history-entry>
@@ -358,15 +319,26 @@
     <history-entry file="AVLTest_AVLdelete - 2020.03.29 at 17h 12m 37s.xml">
       <configuration name="AVLTest.AVLdelete" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AVLTest_AVLdelete - 2020.03.29 at 17h 14m 57s.xml">
+      <configuration name="AVLTest.AVLdelete" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AVLTest_AVLdelete - 2020.03.29 at 17h 15m 19s.xml">
+      <configuration name="AVLTest.AVLdelete" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AVLTest_AVLdelete - 2020.03.29 at 17h 15m 54s.xml">
+      <configuration name="AVLTest.AVLdelete" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AVLTest_AVLdelete - 2020.03.29 at 17h 16m 25s.xml">
+      <configuration name="AVLTest.AVLdelete" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24714000" />
+    <option name="totallyTimeSpent" value="34382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1613" height="873" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2527331" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21157557" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -375,7 +347,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32974428" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,82 +412,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/BSTTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="210" selection-start-line="210" selection-end-line="210" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BST.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="307" column="5" lean-forward="true" selection-start-line="307" selection-start-column="5" selection-end-line="307" selection-end-column="5" />
-          <folding>
-            <element signature="e#5980#5981#0" expanded="true" />
-            <element signature="e#6033#6034#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="455">
+          <caret line="259" column="32" selection-start-line="259" selection-start-column="32" selection-end-line="259" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AVL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="337" selection-start-line="337" selection-end-line="337" />
-          <folding>
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#2010#2011#0" expanded="true" />
-            <element signature="e#2034#2035#0" expanded="true" />
-            <element signature="e#2059#2060#0" expanded="true" />
-            <element signature="e#2086#2087#0" expanded="true" />
-            <element signature="e#2212#2213#0" expanded="true" />
-            <element signature="e#2240#2241#0" expanded="true" />
-            <element signature="e#2270#2271#0" expanded="true" />
-            <element signature="e#2305#2306#0" expanded="true" />
-            <element signature="e#2331#2332#0" expanded="true" />
-            <element signature="e#2421#2422#0" expanded="true" />
-            <element signature="e#2449#2450#0" expanded="true" />
-            <element signature="e#2541#2542#0" expanded="true" />
-            <element signature="e#2566#2567#0" expanded="true" />
-            <element signature="e#2655#2656#0" expanded="true" />
-            <element signature="e#2682#2683#0" expanded="true" />
-            <element signature="e#2773#2774#0" expanded="true" />
-            <element signature="e#3051#3052#0" expanded="true" />
-            <element signature="e#3097#3098#0" expanded="true" />
-            <element signature="e#3241#3242#0" expanded="true" />
-            <element signature="e#3268#3269#0" expanded="true" />
-            <element signature="e#3319#3320#0" expanded="true" />
-            <element signature="e#3346#3347#0" expanded="true" />
-            <element signature="e#3377#3378#0" expanded="true" />
-            <element signature="e#3402#3403#0" expanded="true" />
-            <element signature="e#3912#3913#0" expanded="true" />
-            <element signature="e#3939#3940#0" expanded="true" />
-            <element signature="e#3960#3961#0" expanded="true" />
-            <element signature="e#3987#3988#0" expanded="true" />
-            <element signature="e#4009#4010#0" expanded="true" />
-            <element signature="e#4037#4038#0" expanded="true" />
-            <element signature="e#4060#4061#0" expanded="true" />
-            <element signature="e#4089#4090#0" expanded="true" />
-            <element signature="e#4114#4115#0" expanded="true" />
-            <element signature="e#4142#4143#0" expanded="true" />
-            <element signature="e#9446#9447#0" expanded="true" />
-            <element signature="e#9497#9498#0" expanded="true" />
-            <element signature="e#9548#9549#0" expanded="true" />
-            <element signature="e#9601#9602#0" expanded="true" />
-            <element signature="e#9632#9633#0" expanded="true" />
-            <element signature="e#9675#9676#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1071">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/BSTTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3451">
+          <caret line="210" selection-start-line="210" selection-end-line="210" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/AVLTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="103" column="38" lean-forward="true" selection-start-line="103" selection-start-column="38" selection-end-line="103" selection-end-column="38" />
-          <folding>
-            <element signature="e#3265#3274#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2057">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="34" selection-end-line="128" selection-end-column="34" />
         </state>
       </provider>
     </entry>

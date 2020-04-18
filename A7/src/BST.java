@@ -68,6 +68,8 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
     abstract BST BSTdelete(int key) throws EmptyBSTE;
 
     abstract Pair<Integer, BST> BSTdeleteLeftMostLeaf() throws EmptyBSTE;
+
+    abstract BST flip();
 }
 
 //-----------------------------------------------------------------------
@@ -111,6 +113,11 @@ class EmptyBST extends BST {
     BST BSTdelete(int key) throws EmptyBSTE { throw EBSTX; }
 
     Pair<Integer, BST> BSTdeleteLeftMostLeaf() throws EmptyBSTE { throw EBSTX; }
+
+    @Override
+    BST flip() {
+        return this;
+    }
 
     //--------------------------
     // Printable interface
@@ -205,7 +212,7 @@ class BSTNode extends BST {
     /** @noinspection Duplicates*/
     BST BSTinsert(int key) {
 
-        BSTNode b = null;
+        BSTNode b;
         if(key<this.data){
            b = new BSTNode(data,left.BSTinsert(key),right);
         }
@@ -245,6 +252,11 @@ return b;
         }
     }
 
+    @Override
+    BST flip() {
+        return new BSTNode(data, right.flip(), left.flip())
+    }
+
     //--------------------------
     // Printable interface
     //--------------------------
@@ -275,7 +287,7 @@ return b;
 class TreeIterator implements Iterator<Integer>{
 
 
-    Stack<BST> stack = new Stack<>();
+    private Stack<BST> stack = new Stack<>();
 
     public TreeIterator(BST b){
         loadStack(b);

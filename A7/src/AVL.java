@@ -64,6 +64,7 @@ abstract class AVL implements TreePrinter.PrintableNode {
     abstract AVL AVLdelete(int key) throws EmptyAVLE;
 
     abstract Pair<Integer, AVL> AVLshrink() throws EmptyAVLE;
+
 }
 
 //-----------------------------------------------------------------------
