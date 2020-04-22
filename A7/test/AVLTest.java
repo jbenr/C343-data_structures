@@ -49,7 +49,7 @@ public class AVLTest {
         Iterator<Integer> bstIter = bst.iterator();
         Iterator<Integer> bst2Iter = bst2.iterator();
         while (bstIter.hasNext() && bst2Iter.hasNext()) {
-            assertEquals((int)bstIter.next(),(int)bst2Iter.next());
+            assertEquals((int) bstIter.next(), (int) bst2Iter.next());
         }
     }
 
@@ -78,9 +78,9 @@ public class AVLTest {
         assertTrue(Math.abs(left.AVLHeight() - right.AVLHeight()) <= 1);
 
         assertEquals(20, avl.AVLData());
-        assertEquals(10,left.AVLData());
+        assertEquals(10, left.AVLData());
         assertEquals(15, left.AVLRight().AVLData());
-        assertEquals(40,right.AVLData());
+        assertEquals(40, right.AVLData());
         assertEquals(30, right.AVLLeft().AVLData());
         assertEquals(50, right.AVLRight().AVLData());
     }
@@ -124,10 +124,10 @@ public class AVLTest {
         AVL left = avl.AVLLeft();
         AVL right = avl.AVLRight();
         assertEquals(30, avl.AVLData());
-        assertEquals(20,left.AVLData());
+        assertEquals(20, left.AVLData());
         assertEquals(10, left.AVLLeft().AVLData());
         assertEquals(25, left.AVLRight().AVLData());
-        assertEquals(40,right.AVLData());
+        assertEquals(40, right.AVLData());
         assertEquals(50, right.AVLRight().AVLData());
     }
 
@@ -169,11 +169,28 @@ public class AVLTest {
         AVL left = avl2.AVLLeft();
         AVL right = avl2.AVLRight();
         assertEquals(30, avl2.AVLData());
-        assertEquals(7,left.AVLData());
+        assertEquals(7, left.AVLData());
         assertEquals(5, left.AVLLeft().AVLData());
         assertEquals(20, left.AVLRight().AVLData());
         assertEquals(10, left.AVLRight().AVLLeft().AVLData());
-        assertEquals(40,right.AVLData());
+        assertEquals(40, right.AVLData());
         assertEquals(50, right.AVLRight().AVLData());
+    }
+
+    @Test
+    public void stuff() throws EmptyAVLE {
+        avl = AVL.EAVL;
+        avl = avl.AVLinsert(44);
+        avl = avl.AVLinsert(17);
+        avl = avl.AVLinsert(78);
+        avl = avl.AVLinsert(32);
+        avl = avl.AVLinsert(50);
+        avl = avl.AVLinsert(88);
+        avl = avl.AVLinsert(48);
+        avl = avl.AVLinsert(62);
+        TreePrinter.print(avl);
+        avl = avl.AVLdelete(32);
+        TreePrinter.print(avl);
+        System.out.println(avl.AVLHeight());
     }
 }

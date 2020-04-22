@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="723796e2-c755-48e3-ba5a-4690d06cd948" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../A7/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/A7.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/a7.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/src/AVL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/src/BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/src/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/src/TreePrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/test/AVLTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A7/test/BSTTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../A5/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +143,8 @@
       <workItem from="1580944704337" duration="701000" />
       <workItem from="1580952568704" duration="2598000" />
       <workItem from="1580956302039" duration="7000" />
+      <workItem from="1583758008187" duration="75000" />
+      <workItem from="1585769124194" duration="32000" />
     </task>
     <servers />
   </component>
@@ -180,10 +196,10 @@
     </state>
     <state width="1398" height="258" key="GridCell.Tab.1.right/0.23.1440.808@0.23.1440.808" timestamp="1580348493905" />
     <state width="1398" height="258" key="GridCell.Tab.1.right/0.23.1440.811@0.23.1440.811" timestamp="1580353705073" />
-    <state x="399" y="260" key="com.intellij.ide.util.TipDialog" timestamp="1580493870305">
-      <screen x="0" y="23" width="1440" height="811" />
+    <state x="399" y="259" key="com.intellij.ide.util.TipDialog" timestamp="1585769138079">
+      <screen x="0" y="23" width="1440" height="808" />
     </state>
-    <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1580314391990" />
+    <state x="399" y="259" key="com.intellij.ide.util.TipDialog/0.23.1440.808@0.23.1440.808" timestamp="1585769138079" />
     <state x="399" y="260" key="com.intellij.ide.util.TipDialog/0.23.1440.811@0.23.1440.811" timestamp="1580493870305" />
     <state x="482" y="50" key="refactoring.ChangeSignatureDialog" timestamp="1580339151075">
       <screen x="0" y="23" width="1440" height="811" />

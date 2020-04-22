@@ -66,14 +66,10 @@ abstract class BST implements TreePrinter.PrintableNode, Iterable<Integer> {
                 stack.push(temp);
                 temp = temp.BSTLeft();
             }else{
-                try{
-                    BST t = stack.pop();
-                    k--;
-                    if(k+1==0) result = t.BSTData();
-                    temp = t.BSTRight();
-                } catch (EmptyBSTE emptyBSTE) {
-                    emptyBSTE.printStackTrace();
-                }
+                BST t = stack.pop();
+                k--;
+                if(k+1==0) result = t.BSTData();
+                temp = t.BSTRight();
             }
         }
         return result;
