@@ -117,22 +117,22 @@ public class WeakHeap {
 
     int getLeftChildIndex(int i) throws NoLeftChildE {
 	// TODO
-        return getValue(i*2);
+        return getElem(i*2).getPosition();
     }
 
     int getRightChildIndex(int i) throws NoRightChildE {
         // TODO
-        return getValue((i*2) + 1);
+        return getElem((i*2) + 1).getPosition();
     }
 
     boolean isLeftChild (int i) throws RootE {
         // TODO
-        return i / 2 == 0;
+        return i % 2 == 0;
     }
 
     boolean isRightChild (int i) throws RootE {
         // TODO
-        return i / 2 == 1;
+        return i % 2 == 1;
     }
 
     int getDAncestorIndex(int i) throws RootE {
