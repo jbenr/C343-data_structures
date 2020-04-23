@@ -2,9 +2,7 @@ import com.sun.source.tree.Tree;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -175,6 +173,41 @@ public class AVLTest {
         assertEquals(10, left.AVLRight().AVLLeft().AVLData());
         assertEquals(40, right.AVLData());
         assertEquals(50, right.AVLRight().AVLData());
+
+
+
+
+        int n = 50;
+        int l = -20;
+        int g = 20;
+
+
+        avl = new EmptyAVL();
+        List<Integer> nums = new ArrayList<>();
+        List<Integer> numc = new LinkedList<>();
+
+        HashSet<Integer> seen = new HashSet<Integer>();
+        Random rand = new Random();
+
+        for (int i = 0; i < n; i++) {
+            int r = l + rand.nextInt(g - l);
+            if (!seen.contains(r)){
+                nums.add(r);
+                numc.add(r);
+                seen.add(r);
+            }
+        }
+        n = seen.size();
+        for (int i = 0; i < n; i++) {
+
+            avl = avl.AVLinsert(nums.get(i));
+        }
+
+        try {
+            avl.AVLdelete(10000000);
+            fail("AVL doesn't throw an exception when a number that is not in the AVL is deleted.");
+        } catch (EmptyAVLE e) {
+        }
     }
 
     @Test

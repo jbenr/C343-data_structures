@@ -45,6 +45,7 @@ public class HeapTest {
         TreePrinter.print(bhp.findMin());
 
         for (int i = 1; i < 10; i++) assertEquals(i, bhp.extractMin().getValue());
+
     }
 
     @Test

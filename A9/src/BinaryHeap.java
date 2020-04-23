@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Binary heap with reverse bits...
  * We can flip left and right subtrees in one operation
- *
+ * <p>
  * There is a subtle interaction between the heap and the items it contains.
  * - the heap maintains an arraylist of all items
  * - each item has a reference to the heap and its position within the arraylist
@@ -37,7 +37,17 @@ public class BinaryHeap {
      */
     BinaryHeap(ArrayList<Item> es) {
         // TODO
+        this.size = 0;
+        this.elems = new ArrayList<>();
+        size = es.size();
+        for (int i = 0; i < es.size(); i++) {
+            Item old = es.get(i);
+            old.setPosition(i);
+            old.setHeap(this);
+            elems.add(old);
+        }
 
+        heapify();
     }
 
     /**
@@ -45,7 +55,6 @@ public class BinaryHeap {
      */
     void heapify () {
         // TODO
-
     }
 
     boolean isEmpty() {
@@ -69,7 +78,7 @@ public class BinaryHeap {
         return elems;
     }
 
-    Item getElem (int i) {
+    Item getElem(int i) {
         return elems.get(i);
     }
 
@@ -81,6 +90,10 @@ public class BinaryHeap {
         // TODO
         if (i >= size || i == 0) { throw new NoParentE(); }
         else { return (i-1)/2; }
+        if (i != 0) {
+            return (i - 1) / 2;
+        }
+        throw new NoParentE();
     }
 
     /**
@@ -106,6 +119,59 @@ public class BinaryHeap {
         else if (getElem(i).getRevbit() == 1 && 2*i+1 >= elems.size()) { throw new NoRightChildE(); }
         else if (getElem(i).getRevbit() == 1 && 2*i+1 < elems.size()) { return 2*i+1; }
         else { return 2*i+2-getElem(i).getRevbit(); }
+        // check bounds
+        // check reverse bit
+        if (!elems.isEmpty()) {
+            if (this.getElem(i).getRevbit() == 0) {
+
+                if (2 * i + 1 < size) {
+
+
+                    return 2 * i + 1;
+
+                }
+            }
+
+            if (this.getElem(i).getRevbit() == 1) {
+
+                if (2 * i + 2 < size) {
+
+
+                    return 2 * i + 2;
+
+                }
+            }
+
+
+        }
+        throw new NoLeftChildE();
+    }
+
+    int getRightChildIndex(int i) throws NoRightChildE {
+
+        if (!elems.isEmpty()) {
+            if (this.getElem(i).getRevbit() == 0) {
+
+                if (2 * i + 2 < size) {
+
+
+                    return 2 * i + 2;
+
+                }
+            }
+
+            if (this.getElem(i).getRevbit() == 1) {
+
+                if (2 * i + 1 < size) {
+
+
+                    return 2 * i + 1;
+
+                }
+            }
+        }
+
+        throw new NoRightChildE();
     }
 
     /**
@@ -118,6 +184,17 @@ public class BinaryHeap {
         Item tempj = getElem(j);
         elems.set(i, tempj);
         elems.set(j, tempi);
+
+        Item oldI = this.getElem(i);
+        Item oldJ = this.getElem(j);
+
+        //set i to j and j to i
+        oldI.setPosition(j);
+        oldJ.setPosition(i);
+
+        elems.set(j, oldI);
+        elems.set(i, oldJ);
+
     }
 
     int getValue(int i) {
@@ -148,6 +225,17 @@ public class BinaryHeap {
         elems.add(ek);
         size++;
         moveUp(size-1);
+        try {
+            int parentIndex = getParentIndex(i);
+
+            swap(parentIndex, i);
+
+            moveUp(parentIndex);
+
+        } catch (NoParentE e) {
+
+
+        }
     }
 
     /**
@@ -187,6 +275,31 @@ public class BinaryHeap {
             }
         }
         catch (NoLeftChildE e) {}
+
+        int leftChildIndex = getLeftChildIndex(i);
+        try {
+            int rightChildIndex = getRightChildIndex(i);
+            if(elems.get(leftChildIndex).getValue()< elems.get(rightChildIndex).getValue()){
+                return leftChildIndex;
+            }else{
+                return rightChildIndex;
+            }
+        } catch(NoRightChildE e){
+            return leftChildIndex;
+        }
+
+    }
+
+    void moveDown(int i) {
+        try {
+            int minChildIndex = minChildIndex(i);
+            if(elems.get(minChildIndex).getValue() < elems.get(i).getValue()) {
+                swap(i, minChildIndex);
+                moveDown(minChildIndex);
+            }
+        } catch (NoLeftChildE noLeftChildE) {
+
+        }
     }
 
     /**
@@ -198,6 +311,14 @@ public class BinaryHeap {
         // TODO
         this.swap(0, size);
         return getElem(0);
+        Item min = elems.get(0);
+        int lastElementIndex = size-1;
+        swap(lastElementIndex,0);
+        elems.remove(size-1);
+        size--;
+        moveDown(0);
+
+        return min;
     }
 
 
