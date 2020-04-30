@@ -35,26 +35,28 @@ public class BinaryHeap {
      * setPosition and setHeap. When everything is properly initialized and
      * copied to 'elems' the constructor calls 'heapify'.
      */
-    BinaryHeap(ArrayList<Item> es) {
+    BinaryHeap(ArrayList<Item> es) throws NoLeftChildE {
         // TODO
-        this.size = 0;
         this.elems = new ArrayList<>();
         size = es.size();
-        for (int i = 0; i < es.size(); i++) {
+        for (int i = 0; i <= size; i++) {
             Item old = es.get(i);
             old.setPosition(i);
             old.setHeap(this);
             elems.add(old);
         }
-
         heapify();
     }
 
     /**
      * Implement it as discussed in class...
      */
-    void heapify () {
+    void heapify () throws NoLeftChildE {
         // TODO
+        int half = size/2 - 1;
+        for(int i = 0; i <= half; i++) {
+            this.moveDown(i);
+        }
     }
 
     boolean isEmpty() {
@@ -90,10 +92,6 @@ public class BinaryHeap {
         // TODO
         if (i >= size || i == 0) { throw new NoParentE(); }
         else { return (i-1)/2; }
-        if (i != 0) {
-            return (i - 1) / 2;
-        }
-        throw new NoParentE();
     }
 
     /**
@@ -113,64 +111,18 @@ public class BinaryHeap {
     }
 
     int getRightChildIndex(int i) throws NoRightChildE {
-        // TODO
-        if (i >= size) { throw new NoRightChildE(); }
-        else if (2*i+1 >= elems.size()) { throw new NoRightChildE(); }
-        else if (getElem(i).getRevbit() == 1 && 2*i+1 >= elems.size()) { throw new NoRightChildE(); }
-        else if (getElem(i).getRevbit() == 1 && 2*i+1 < elems.size()) { return 2*i+1; }
-        else { return 2*i+2-getElem(i).getRevbit(); }
-        // check bounds
-        // check reverse bit
         if (!elems.isEmpty()) {
             if (this.getElem(i).getRevbit() == 0) {
-
-                if (2 * i + 1 < size) {
-
-
-                    return 2 * i + 1;
-
-                }
-            }
-
-            if (this.getElem(i).getRevbit() == 1) {
-
                 if (2 * i + 2 < size) {
-
-
                     return 2 * i + 2;
-
                 }
             }
-
-
-        }
-        throw new NoLeftChildE();
-    }
-
-    int getRightChildIndex(int i) throws NoRightChildE {
-
-        if (!elems.isEmpty()) {
-            if (this.getElem(i).getRevbit() == 0) {
-
-                if (2 * i + 2 < size) {
-
-
-                    return 2 * i + 2;
-
-                }
-            }
-
             if (this.getElem(i).getRevbit() == 1) {
-
                 if (2 * i + 1 < size) {
-
-
                     return 2 * i + 1;
-
                 }
             }
         }
-
         throw new NoRightChildE();
     }
 
@@ -188,13 +140,11 @@ public class BinaryHeap {
         Item oldI = this.getElem(i);
         Item oldJ = this.getElem(j);
 
-        //set i to j and j to i
         oldI.setPosition(j);
         oldJ.setPosition(i);
 
         elems.set(j, oldI);
         elems.set(i, oldJ);
-
     }
 
     int getValue(int i) {
@@ -215,7 +165,7 @@ public class BinaryHeap {
                 moveDown(parent);
             }
         }
-        catch (NoParentE e) {}
+        catch (NoParentE | NoLeftChildE e) {}
     }
 
     void insert(Item ek) {
@@ -226,16 +176,10 @@ public class BinaryHeap {
         size++;
         moveUp(size-1);
         try {
-            int parentIndex = getParentIndex(i);
-
-            swap(parentIndex, i);
-
+            int parentIndex = getParentIndex(ek.getValue());
+            swap(parentIndex, ek.getValue());
             moveUp(parentIndex);
-
-        } catch (NoParentE e) {
-
-
-        }
+        } catch (NoParentE e) {}
     }
 
     /**
@@ -265,7 +209,7 @@ public class BinaryHeap {
         else return l;
     }
 
-    void moveDown(int i) {
+    void moveDown(int i) throws NoLeftChildE {
         // TODO
         try {
             int min = minChildIndex(i);
@@ -275,31 +219,6 @@ public class BinaryHeap {
             }
         }
         catch (NoLeftChildE e) {}
-
-        int leftChildIndex = getLeftChildIndex(i);
-        try {
-            int rightChildIndex = getRightChildIndex(i);
-            if(elems.get(leftChildIndex).getValue()< elems.get(rightChildIndex).getValue()){
-                return leftChildIndex;
-            }else{
-                return rightChildIndex;
-            }
-        } catch(NoRightChildE e){
-            return leftChildIndex;
-        }
-
-    }
-
-    void moveDown(int i) {
-        try {
-            int minChildIndex = minChildIndex(i);
-            if(elems.get(minChildIndex).getValue() < elems.get(i).getValue()) {
-                swap(i, minChildIndex);
-                moveDown(minChildIndex);
-            }
-        } catch (NoLeftChildE noLeftChildE) {
-
-        }
     }
 
     /**
@@ -307,10 +226,9 @@ public class BinaryHeap {
      * in the array and move it to location 0 and then recursively apply
      * moveDown.
      */
-    Item extractMin() {
+    Item extractMin() throws NoLeftChildE {
         // TODO
-        this.swap(0, size);
-        return getElem(0);
+        swap(0, size);
         Item min = elems.get(0);
         int lastElementIndex = size-1;
         swap(lastElementIndex,0);

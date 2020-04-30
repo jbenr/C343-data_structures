@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class HeapTest {
 
     @Test
-    public void sortBH () {
+    public void sortBH () throws NoLeftChildE {
         ArrayList<Item> items = new ArrayList<>();
 
         Item it;
