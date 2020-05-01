@@ -66,4 +66,181 @@ public class HeapTest {
         assertEquals(1, bh.findMin().getValue());
     }
 
+    @Test
+    public void heapify() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+
+        items.add(new Item("a",5));
+        BinaryHeap bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(5, bh.findMin().getValue());
+
+        items.add(new Item("b",6));
+        bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(5, bh.findMin().getValue());
+
+        items.add(new Item("c",7));
+        bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(5, bh.findMin().getValue());
+
+        items.add(new Item("c",4));
+        bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(4, bh.findMin().getValue());
+
+        items.add(new Item("c",3));
+        bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(3, bh.findMin().getValue());
+
+        items.add(new Item("c",2));
+        bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(2, bh.findMin().getValue());
+
+        items.add(new Item("c",1));
+        bh = new BinaryHeap(items);
+    //    TreePrinter.print(bh.findMin());
+        assertEquals(1, bh.findMin().getValue());
+    }
+
+    @Test
+    public void empty() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+        BinaryHeap bh = new BinaryHeap(items);
+        assertTrue(bh.isEmpty());
+    }
+
+    @Test
+    public void size() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+        BinaryHeap bh = new BinaryHeap(items);
+        assertEquals(0, bh.getSize());
+
+        items.add(new Item("apples",6));
+        items.add(new Item("oranges",7));
+        bh = new BinaryHeap(items);
+        assertEquals(2,bh.getSize());
+    }
+
+    @Test
+    public void parent() throws NoLeftChildE, NoParentE {
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("child",20));
+        items.add(new Item("grandchild",200));
+        items.add(new Item("parent",2));
+
+        BinaryHeap bh = new BinaryHeap(items);
+
+        assertEquals(0,bh.getParentIndex(2));
+        assertEquals(bh.getValue(0),bh.getValue(bh.getParentIndex(1)));
+    }
+
+    @Test
+    public void child() throws NoLeftChildE, NoRightChildE {
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("child",20));
+        items.add(new Item("grandchild",200));
+        items.add(new Item("parent",2));
+
+        BinaryHeap bh = new BinaryHeap(items);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(200, bh.getValue(bh.getLeftChildIndex(0)));
+        assertEquals(20, bh.getValue(bh.getRightChildIndex(0)));
+
+        assertTrue(bh.getValue(1) > bh.getValue(2));
+        assertEquals(2, bh.minChildIndex(0));
+    }
+
+    @Test
+    public void swap() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(new Item("child",20));
+        items.add(new Item("grandchild",200));
+        items.add(new Item("parent",2));
+        items.add(new Item("brotha",50));
+        items.add(new Item("sista",60));
+        items.add(new Item("motha",80));
+        BinaryHeap bh = new BinaryHeap(items);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(2, bh.getValue(0));
+        bh.swap(0,5);
+        TreePrinter.print(bh.findMin());
+        assertEquals(80,bh.getValue(0));
+
+        bh.heapify();
+        TreePrinter.print(bh.findMin());
+        assertEquals(2, bh.getValue(0));
+    }
+
+    @Test
+    public void moveUp() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+
+        items.add(new Item("1",10));
+        items.add(new Item("2",8));
+        items.add(new Item("3",6));
+        items.add(new Item("1",11));
+        items.add(new Item("2",4));
+        items.add(new Item("3",2));
+        items.add(new Item("1",1));
+        items.add(new Item("2",9));
+        BinaryHeap bh = new BinaryHeap(items);
+        TreePrinter.print(bh.findMin());
+
+        bh.swap(0,7);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(1, bh.getValue(items.size()-1));
+
+        bh.moveUp(items.size()-1);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(1,bh.getValue(0));
+    }
+
+    @Test
+    public void insert() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+
+        items.add(new Item("1", 10));
+        items.add(new Item("2", 8));
+        items.add(new Item("3", 6));
+
+        BinaryHeap bh = new BinaryHeap(items);
+        assertEquals(3,bh.getSize());
+
+        bh.insert(new Item("hey",20));
+        assertEquals(4,bh.getSize());
+    }
+
+    @Test
+    public void moveDown() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+
+        items.add(new Item("1",10));
+        items.add(new Item("2",8));
+        items.add(new Item("3",6));
+        items.add(new Item("1",11));
+        items.add(new Item("2",4));
+        items.add(new Item("3",2));
+        items.add(new Item("1",1));
+        items.add(new Item("2",9));
+        BinaryHeap bh = new BinaryHeap(items);
+        TreePrinter.print(bh.findMin());
+
+        bh.swap(0,7);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(11, bh.getValue(0));
+
+        bh.moveDown(0);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(11,bh.getValue(2));
+    }
 }
