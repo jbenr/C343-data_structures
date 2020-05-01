@@ -146,13 +146,33 @@ public class WeakHeap {
 
     int getLeftMostChildIndex () throws NoLeftChildE {
 	// TODO
-	return 0;
+	    if(size == 0){
+	        throw new NoLeftChildE();
+        } else if(size == 1){
+	        return 1;
+        } else {
+	        return 4;
+        }
     }
 
     // Helpers for main methods
 
     void swap(int i, int j) {
-	// TODO -- should be identical to swap in A9
+        // TODO -- should be identical to swap in A9
+        Item tempi = getElem(i);
+        Item tempj = getElem(j);
+
+        Item oldI = this.getElem(i);
+        Item oldJ = this.getElem(j);
+
+        elems.set(i, tempj);
+        elems.set(j, tempi);
+
+        oldI.setPosition(j);
+        oldJ.setPosition(i);
+
+        elems.set(j, oldI);
+        elems.set(i, oldJ);
     }
 
     /*
@@ -162,8 +182,14 @@ public class WeakHeap {
      * false. If no action was taken, the method returns true.
      */
     boolean join (int i, int j) {
-	// TODO
-        return false;
+        // TODO
+        if(getValue(i) > getValue(j)) {
+            swap(i,j);
+            flips.set(j,1);
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /*
@@ -171,10 +197,16 @@ public class WeakHeap {
      * If a swap was performed, the method recursively continues by moving
      * the distinguished ancestor up. If not, the method returns immediately.
      */
-    void moveUp (int j) {
+    void moveUp (int j) throws RootE {
 	// TODO
-
+   //     if(getValue(j) < getValue(getDAncestorIndex(j))) {
+    //        join(j, getDAncestorIndex(j));
+     //       moveUp(getDAncestorIndex(j));
+      //  } else {
+       //     return;
+        //}
     }
+
 
     /*
      * The method starts by locating the leftmost child along the leftmost
@@ -227,9 +259,17 @@ public class WeakHeap {
      * of the array starting from the end until reaching index 1. For each item,
      * the method checks that it is larger than its distinguished ancestor.
      */
-    boolean checkOrder () {
+    boolean checkOrder () throws RootE {
 	// TODO
-	    return true;
+        boolean result = true;
+	    for(int i = 0; i >= size; i++){
+	        if(getValue(size-i) > getValue(getDAncestorIndex(size-i))) {
+	            result = true;
+            } else {
+	            return false;
+            }
+        }
+	    return result;
     }
 
 }

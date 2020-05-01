@@ -109,6 +109,7 @@ public class WeakHeap {
     void updateKey (int i, int value) {
 	assert value < elems.get(i).getValue();
         // TODO
+
     }
 
     // Main methods: insert and extractMin

@@ -39,7 +39,7 @@ public class BinaryHeap {
         // TODO
         this.elems = new ArrayList<>();
         size = es.size();
-        for (int i = 0; i <= size; i++) {
+        for (int i = 0; i < size; i++) {
             Item old = es.get(i);
             old.setPosition(i);
             old.setHeap(this);
@@ -53,9 +53,10 @@ public class BinaryHeap {
      */
     void heapify () throws NoLeftChildE {
         // TODO
-        int half = size/2 - 1;
-        for(int i = 0; i <= half; i++) {
-            this.moveDown(i);
+        int half = size/2 + 1;
+        for(int i = 0; i < size; i++) {
+            moveDown(i);
+            moveUp(i);
         }
     }
 
@@ -134,11 +135,12 @@ public class BinaryHeap {
         // TODO
         Item tempi = getElem(i);
         Item tempj = getElem(j);
-        elems.set(i, tempj);
-        elems.set(j, tempi);
 
         Item oldI = this.getElem(i);
         Item oldJ = this.getElem(j);
+
+        elems.set(i, tempj);
+        elems.set(j, tempi);
 
         oldI.setPosition(j);
         oldJ.setPosition(i);
@@ -162,10 +164,10 @@ public class BinaryHeap {
             int parent = getParentIndex(i);
             if (getValue(i) < getValue(parent)) {
                 swap(i, parent);
-                moveDown(parent);
+                moveUp(parent);
             }
         }
-        catch (NoParentE | NoLeftChildE e) {}
+        catch (NoParentE e) {}
     }
 
     void insert(Item ek) {
@@ -182,11 +184,6 @@ public class BinaryHeap {
         } catch (NoParentE e) {}
     }
 
-    /**
-     * When a large element finds itself high in the tree for some reason,
-     * we need to move it down. For that we need to compare it to both its
-     * children and swap it with the smaller of them
-     */
     int minChildIndex(int i) throws NoLeftChildE {
         // TODO
         int l = i*2+1;
@@ -197,25 +194,22 @@ public class BinaryHeap {
             if (elems.get(l).getValue() > elems.get(r).getValue()) return r;
             else return l;
         }
-
-        try {
-            l = minChildIndex(l);
-        } catch (Exception e) {}
-        try {
-            r = minChildIndex(r);
-        } catch (Exception e) {}
-
         if (elems.get(l).getValue() > elems.get(r).getValue()) return r;
         else return l;
     }
 
+    /**
+     * When a large element finds itself high in the tree for some reason,
+     * we need to move it down. For that we need to compare it to both its
+     * children and swap it with the smaller of them
+     */
     void moveDown(int i) throws NoLeftChildE {
         // TODO
         try {
             int min = minChildIndex(i);
             if (getValue(i) > getValue(min)) {
-                swap(i, minChildIndex(i));
-                moveDown(min);
+                swap(i, min);
+                moveDown(i);
             }
         }
         catch (NoLeftChildE e) {}
@@ -228,17 +222,20 @@ public class BinaryHeap {
      */
     Item extractMin() throws NoLeftChildE {
         // TODO
-        swap(0, size);
-        Item min = elems.get(0);
-        int lastElementIndex = size-1;
-        swap(lastElementIndex,0);
-        elems.remove(size-1);
-        size--;
-        moveDown(0);
-
-        return min;
+        if(size >= 1) {
+            Item min = findMin();
+            swap(0, size - 1);
+            elems.remove(size - 1);
+            size--;
+            heapify();
+            return min;
+        } else {
+            Item min = findMin();
+            elems.remove(0);
+            size = 0;
+            return min;
+        }
     }
-
 
     public String toString() {
         return getElems().toString();

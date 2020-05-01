@@ -35,6 +35,8 @@ public class Graph {
 
     void allShortestPaths(Item source) {
         // TODO
+        int temp = 0;
+
     }
 
     // -----
@@ -42,6 +44,7 @@ public class Graph {
 
     ArrayList<Edge> shortestPath(Item source, Item dest) {
         // TODO
+        return null;
     }
 
     // -----

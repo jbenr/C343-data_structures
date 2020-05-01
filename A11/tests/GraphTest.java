@@ -181,6 +181,7 @@ public class GraphTest {
 
         // all shortest paths from p7
         g.allShortestPaths(pp7);
+        g.toString();
 
         assertTrue(pp1.isVisited());
         assertTrue(pp2.isVisited());

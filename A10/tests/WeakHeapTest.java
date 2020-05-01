@@ -12,7 +12,7 @@ public class WeakHeapTest {
     private WeakHeap wh1;
 
     @Before
-    public void setUp () {
+    public void setUp () throws RootE {
         wh1 = new WeakHeap();
         wh1.insert(new Item(30));
         wh1.insert(new Item(50));
@@ -136,7 +136,7 @@ public class WeakHeapTest {
     }
 
     @Test
-    public void weakHeapify() {
+    public void weakHeapify() throws RootE {
         Random r = new Random(1);
         ArrayList<Item> items = new ArrayList<>();
         for (int i=0; i<14; i++) {
@@ -165,7 +165,7 @@ public class WeakHeapTest {
     }
 
     @Test
-    public void moveUp() {
+    public void moveUp() throws RootE {
         wh1.getElem(7).setValue(0);
         wh1.moveUp(7);
         assertEquals(0, wh1.getValue(0));
@@ -196,7 +196,7 @@ public class WeakHeapTest {
     }
 
     @Test
-    public void insert() {
+    public void insert() throws RootE {
         wh1.insert(new Item(10));
         assertTrue(wh1.checkOrder());
         wh1.insert(new Item(11));
@@ -210,7 +210,7 @@ public class WeakHeapTest {
     }
 
     @Test
-    public void extractMin() {
+    public void extractMin() throws RootE {
         WeakHeap wh = new WeakHeap();
         wh.insert(new Item(1));
         wh.insert(new Item(10));

@@ -44,13 +44,26 @@ public class HeapTest {
         BinaryHeap bhp = new BinaryHeap(items);
         TreePrinter.print(bhp.findMin());
 
-        for (int i = 1; i < 10; i++) assertEquals(i, bhp.extractMin().getValue());
-
+        for (int i = 1; i < 10; i++) {
+            assertEquals(i, bhp.extractMin().getValue());
+        }
     }
 
     @Test
-    public void findMin() {
-        assertEquals(6, 13/2);
+    public void findMin() throws NoLeftChildE {
+        ArrayList<Item> items = new ArrayList<>();
+
+        items.add(new Item("1",10));
+        items.add(new Item("2",8));
+        items.add(new Item("3",6));
+        BinaryHeap bh = new BinaryHeap(items);
+        TreePrinter.print(bh.findMin());
+        items.add(new Item("min",1));
+
+        bh = new BinaryHeap(items);
+        TreePrinter.print(bh.findMin());
+
+        assertEquals(1, bh.findMin().getValue());
     }
 
 }

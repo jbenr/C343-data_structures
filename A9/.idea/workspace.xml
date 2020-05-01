@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05528692-0801-43ed-ab57-fe650d5ba315" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../A11/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A10/src/WeakHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A10/src/WeakHeap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A10/tests/WeakHeapTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A10/tests/WeakHeapTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A11/src/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A11/src/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A11/src/WeakHeap.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A11/src/WeakHeap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../A11/tests/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../A11/tests/GraphTest.java" afterDir="false" />
@@ -16,10 +16,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bHS23VzjPHHQ95E9NxeBOcDv6m" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunManager" selected="JUnit.HeapTest">
     <configuration name="HeapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -54,8 +63,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.HeapTest" />
-        <item itemvalue="JUnit.HeapTest.sortBH" />
         <item itemvalue="JUnit.HeapTest.findMin" />
+        <item itemvalue="JUnit.HeapTest.sortBH" />
       </list>
     </recent_temporary>
   </component>
@@ -81,7 +90,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588214719466</updated>
-      <workItem from="1588214723514" duration="4116000" />
+      <workItem from="1588214723514" duration="5830000" />
+      <workItem from="1588287321776" duration="8466000" />
     </task>
     <servers />
   </component>
@@ -93,25 +103,42 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="320" y="94" key="#Notifications/0.23.1440.811@0.23.1440.811" timestamp="1588214739243" />
-    <state width="1398" height="208" key="GridCell.Tab.0.bottom" timestamp="1588285533901">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom" timestamp="1588323261161">
       <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588285533901" />
-    <state width="1398" height="208" key="GridCell.Tab.0.center" timestamp="1588285533900">
+    <state width="1398" height="207" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588323261161" />
+    <state width="1398" height="207" key="GridCell.Tab.0.center" timestamp="1588323261160">
       <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1588285533900" />
-    <state width="1398" height="208" key="GridCell.Tab.0.left" timestamp="1588285533900">
+    <state width="1398" height="207" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1588323261160" />
+    <state width="1398" height="207" key="GridCell.Tab.0.left" timestamp="1588323261160">
       <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1588285533900" />
-    <state width="1398" height="208" key="GridCell.Tab.0.right" timestamp="1588285533901">
+    <state width="1398" height="207" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1588323261160" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right" timestamp="1588323261160">
       <screen x="0" y="23" width="1440" height="812" />
     </state>
-    <state width="1398" height="208" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1588285533901" />
-    <state x="399" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1588214726612">
-      <screen x="0" y="23" width="1440" height="811" />
+    <state width="1398" height="207" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1588323261160" />
+    <state width="1398" height="259" key="GridCell.Tab.1.bottom" timestamp="1588287305696">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state width="1398" height="259" key="GridCell.Tab.1.bottom/0.23.1440.812@0.23.1440.812" timestamp="1588287305696" />
+    <state width="1398" height="259" key="GridCell.Tab.1.center" timestamp="1588287305696">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state width="1398" height="259" key="GridCell.Tab.1.center/0.23.1440.812@0.23.1440.812" timestamp="1588287305696" />
+    <state width="1398" height="259" key="GridCell.Tab.1.left" timestamp="1588287305696">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state width="1398" height="259" key="GridCell.Tab.1.left/0.23.1440.812@0.23.1440.812" timestamp="1588287305696" />
+    <state width="1398" height="259" key="GridCell.Tab.1.right" timestamp="1588287305696">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state width="1398" height="259" key="GridCell.Tab.1.right/0.23.1440.812@0.23.1440.812" timestamp="1588287305696" />
+    <state x="399" y="261" key="com.intellij.ide.util.TipDialog" timestamp="1588287322647">
+      <screen x="0" y="23" width="1440" height="812" />
     </state>
     <state x="399" y="261" key="com.intellij.ide.util.TipDialog/0.23.1440.811@0.23.1440.811" timestamp="1588214726612" />
+    <state x="399" y="261" key="com.intellij.ide.util.TipDialog/0.23.1440.812@0.23.1440.812" timestamp="1588287322647" />
   </component>
 </project>
